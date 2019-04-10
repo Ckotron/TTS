@@ -23,41 +23,66 @@
     <style type="text/css">
       body{
         background-color: white;
-        overflow: hidden;
+        overflow: auto;
       }
-      #divlogin{
+      #consultar{
         position: absolute;
         /*nos posicionamos en el centro del navegador*/
         top:50%;
         left:50%;
         /*determinamos una anchura*/
-        width:400px;
+        width:900px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-        margin-left:-200px;
+        margin-left:-450px;
         /*determinamos una altura*/
-        height:360px;
-        animation-duration: 1s;
-        animation-name: slidein;
+        height:500px;
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
-        margin-top:-150px;
+        margin-top:-195px;
+        margin-bottom:-80px;
         background-color: #ebd2f6;
         border:1px solid #c6c6c6;
       }
-      #entrar{
+      #tabla{
+
+        /*nos posicionamos en el centro del navegador*/
+
+        /*determinamos una anchura*/
+        width:750px;
+        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+        /*determinamos una altura*/
+        height:700px;
+        border-radius: 25px;
+        overflow: auto;
+        /*indicamos que el margen superior, es la mitad de la altura*/
+
+        background-color: white;
+        border:1px solid #c6c6c6;
+      }
+      #botones{
+        /*nos posicionamos en el centro del navegador*/
+
+        /*determinamos una anchura*/
+        width:500px;
+        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+        /*determinamos una altura*/
+        height:42px;
+        border-radius: 25px;
+
+        /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-bottom: 20px;
+      }
+      #registrar{
         background-color: white;
         color: black;
         border: 2px solid #555555;
       }
-      #entrar:hover{
+      #registrar:hover{
         background-color: #555555;
         color: white;
-      }
-      @keyframes slidein {
-      from {
-        margin-left: 100%;
-        width: 300%;
       }
     </style>
   </head>
@@ -72,22 +97,22 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Regresar</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Cerrar sesión</a>
           </li>
         </ul>
       </div>
       </div>
     </nav>
 
-    <div id = "divlogin" class = "container">
+    <div id = "consultar" class = "container">
       <br>
-      <center><h2>Iniciar sesión</h2></center>
+      <center><h5>Pacientes</h5></center>
+      <div id = "tabla" class = "container">
+      </div>
       <br>
-      <label for="usuario">Usuario</label>
-      <input type="text" id="user" name="usuario" class="form-control" placeholder="Ingrese su usuario ..."><br>
-      <label for="contrasena">Contraseña</label>
-      <input type="text" id="pwd" name="contrasena" class="form-control" placeholder="Ingrese su contraseña ..."><br>
-      <center><button type="submit" id="entrar" class="btn btn-success">Entrar</button></center>
+      <div id = "botones" class = "container">
+      <center><button type="submit" id="registrar" class="btn btn-success">Registrar pacientes</button></center>
+      </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
