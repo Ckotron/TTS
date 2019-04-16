@@ -34,14 +34,10 @@
       input::-moz-placeholder { color: #bdbdd3;}
       input:-ms-input-placeholder { color: #bdbdd3;}
       #divlogin{
-        position: absolute;
-        /*nos posicionamos en el centro del navegador*/
-        top:50%;
-        left:50%;
         /*determinamos una anchura*/
         width:400px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-        margin-left:-200px;
+        margin-left:450px;
         /*determinamos una altura*/
         height:390px;
         animation-duration: 1s;
@@ -49,7 +45,7 @@
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
-        margin-top:-150px;
+        margin-top:150px;
         background-color: #ebd2f6;
         border:1px solid #c6c6c6;
       }
@@ -92,14 +88,15 @@
       </div>
     </nav>
 
-    <div id = "divlogin" class = "container">
+    <div id = "divlogin" class = "container col-lg8 col-xs-12 col-centered">
       <br>
       <center><h2>Iniciar sesión</h2></center>
       <br>
       <label for="usuario">Usuario</label>      
       <input type="text" id ="usr" name="usuar" class="form-control" placeholder="Nombre de usuario">
       <label for="contrasena">Contraseña</label>
-      <input type="text" id="pwd" name="contrasena" class="form-control" placeholder="Ingrese su contraseña ..."><br>
+      <input type="password" id="pwd" name="contrasena" class="form-control" placeholder="Ingrese su contraseña ..."><br>
+
       <center><button type="submit" id="entrar" class="btn btn-success" onclick="window.location.href='pacientes.html'">Entrar</button></center>
       <br>
       <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href='reg_doct.html'">Registrarse</button></center>

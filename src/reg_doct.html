@@ -26,11 +26,9 @@
         overflow: auto;
       }
       #consultar{
-        
         /*determinamos una anchura*/
-        width:900px;
+        width:700px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-
         /*determinamos una altura*/
         height:500px;
         border-radius: 25px;
@@ -41,12 +39,11 @@
         background-color: #ebd2f6;
         border:1px solid #c6c6c6;
       }
-      #tabla{
+      #inputs{
 
         /*nos posicionamos en el centro del navegador*/
-
         /*determinamos una anchura*/
-        width:750px;
+        width:600px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
 
         /*determinamos una altura*/
@@ -54,8 +51,6 @@
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
-
-        background-color: white;
         border:1px solid #c6c6c6;
       }
       #botones{
@@ -70,7 +65,15 @@
         border-radius: 25px;
 
         /*indicamos que el margen superior, es la mitad de la altura*/
-        margin-bottom: 20px;
+      }
+      #tab{
+        width: 100%;
+      }
+      #tabgen{
+        width: 100%;
+      }
+      #fechaNac{
+        width: 70%;
       }
       #registrar{
         background-color: white;
@@ -90,7 +93,8 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.html">Cerrar sesión</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.html">Regresar</a>
+          </li>
           </li>
         </ul>
       </div>
@@ -99,13 +103,70 @@
 
     <div id = "consultar" class = "container col-lg8 col-xs-12 col-centered">
       <br>
-      <center><h5>Pacientes</h5></center>
+      <center><h5>Registrar doctor</h5></center>
       <br>
-      <div id = "tabla" class = "container col-lg8 col-xs-12 col-centered">
+      <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
+        <br>
+        <label for="nombr">Nombre</label>      
+        <input type="text" id ="nombr" name="nombre" class="form-control" placeholder="Nombre">
+        <table id = "tab">
+          <tr>
+            <td><label for="apPat">Apellido paterno</label></td>
+            <td><label for="apMat">Apellido materno</label></td>
+          </tr>
+          <tr>
+            <td><input type="text" id ="apPat" name="apPater" class="form-control" placeholder="Apellido paterno"></td>
+            <td><input type="text" id ="apMat" name="apMater" class="form-control" placeholder="Apellido materno"></td>
+          </tr>
+        </table>
+        <table id = "tabgen">
+          <tr>
+            <td width = >
+              <label for="fechaNac">Fecha de nacimiento</label>      
+            </td>
+            <td><label>Género</label></td>
+          </tr>   
+          <tr>
+          <td><input type="date" id ="fechaNac" name="fechaNaci" class="form-control"></td>
+          <td><div class="radio">
+            <label>
+              <input type="radio" name="opciones" id="masc" value="H" checked>
+              Masculino
+            </label>
+          </div></td>
+          <td><div class="radio">
+            <label>
+              <input type="radio" name="opciones" id="fem" value="M">
+              Femenino
+            </label>
+          </div></td>
+          </tr>
+        </table>
+        <table id = "tab">
+          <tr>
+            <td><label for="tel">Teléfono</label></td>
+            <td><label for="idCorreo">Correo</label></td>
+          </tr>      
+          <tr>
+            <td><input type="text" id ="tel" name="telef" class="form-control" placeholder="Teléfono"></td>
+            <td><input type="text" id ="idCorreo" name="correo" class="form-control" placeholder="Correo"></td>
+          </tr>
+        </table>
+        <table id = "tab">
+          <tr>
+            <td><label for="usr">Usuario</label></td>
+            <td><label for="pswd">Contraseña</label></td>
+          </tr>      
+          <tr>
+            <td><input type="text" id ="usr" name="usuar" class="form-control" placeholder="Usuario"></td>
+            <td><input type="text" id ="pswd" name="contra" class="form-control" placeholder="Contraseña"></td>
+          </tr>
+        </table>
+        <br>
       </div>
       <br>
-      <div id = "botones" class = "container col-lg8 col-xs-12 col-centered">
-      <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href='reg_pac.html'">Registrar pacientes</button></center>
+      <div id = "botones" class = "container">
+      <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href=''">Registrar doctor</button></center>
       </div>
     </div>
     <!-- Optional JavaScript -->
