@@ -25,6 +25,14 @@
         background-color: white;
         overflow: hidden;
       }
+      input {
+        outline: none;
+        border: none;
+      }
+      input::-webkit-input-placeholder { color: #bdbdd3;}
+      input:-moz-placeholder { color: #bdbdd3;}
+      input::-moz-placeholder { color: #bdbdd3;}
+      input:-ms-input-placeholder { color: #bdbdd3;}
       #divlogin{
         position: absolute;
         /*nos posicionamos en el centro del navegador*/
@@ -35,7 +43,7 @@
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
         margin-left:-200px;
         /*determinamos una altura*/
-        height:360px;
+        height:390px;
         animation-duration: 1s;
         animation-name: slidein;
         border-radius: 25px;
@@ -54,6 +62,15 @@
         background-color: #555555;
         color: white;
       }
+      #registrar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
+      #registrar:hover{
+        background-color: #555555;
+        color: white;
+      }
       @keyframes slidein {
       from {
         margin-left: 100%;
@@ -65,14 +82,10 @@
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">YOLIA</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Regresar</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../Ejemplo pagina/index.html">Regresar</a>
           </li>
         </ul>
       </div>
@@ -83,11 +96,13 @@
       <br>
       <center><h2>Iniciar sesión</h2></center>
       <br>
-      <label for="usuario">Usuario</label>
-      <input type="text" id="user" name="usuario" class="form-control" placeholder="Ingrese su usuario ..."><br>
+      <label for="usuario">Usuario</label>      
+      <input type="text" id ="usr" name="usuar" class="form-control" placeholder="Nombre de usuario">
       <label for="contrasena">Contraseña</label>
       <input type="text" id="pwd" name="contrasena" class="form-control" placeholder="Ingrese su contraseña ..."><br>
-      <center><button type="submit" id="entrar" class="btn btn-success">Entrar</button></center>
+      <center><button type="submit" id="entrar" class="btn btn-success" onclick="window.location.href='pacientes.html'">Entrar</button></center>
+      <br>
+      <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href='reg_doct.html'">Registrarse</button></center>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

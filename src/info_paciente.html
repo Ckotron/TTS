@@ -65,7 +65,7 @@
         /*nos posicionamos en el centro del navegador*/
 
         /*determinamos una anchura*/
-        width:500px;
+        width:750px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
 
         /*determinamos una altura*/
@@ -75,14 +75,34 @@
         /*indicamos que el margen superior, es la mitad de la altura*/
         margin-bottom: 20px;
       }
-      #registrar{
+      #modificar{
         background-color: white;
         color: black;
         border: 2px solid #555555;
       }
-      #registrar:hover{
+      #modificar:hover{
         background-color: #555555;
         color: white;
+      }
+      #aplicar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        margin-left:60px;
+      }
+      #aplicar:hover{
+        background-color: #555555;
+        color: white; 
+      }
+      #eliminar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        margin-left:114px;
+      }
+      #eliminar:hover{
+        background-color: #555555;
+        color: white;  
       }
     </style>
   </head>
@@ -93,7 +113,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="login.html">Cerrar sesión</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Cerrar sesión</a>
           </li>
         </ul>
       </div>
@@ -102,13 +122,13 @@
 
     <div id = "consultar" class = "container">
       <br>
-      <center><h5>Pacientes</h5></center>
+      <center><h5>Información del paciente</h5></center>
       <br>
       <div id = "tabla" class = "container">
       </div>
       <br>
       <div id = "botones" class = "container">
-      <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href='reg_pac.html'">Registrar pacientes</button></center>
+        <button type="submit" id="modificar" class="btn btn-success">Modificar datos del paciente</button><button type="submit" id="aplicar" class="btn btn-success">Aplicar cuestionario</button><button type="submit" id="eliminar" class="btn btn-success">Eliminar paciente</button>
       </div>
     </div>
     <!-- Optional JavaScript -->
