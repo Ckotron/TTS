@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <!-- bug asqueroso -->
+    <link rel="shortcut icon" href="">
+
+    <!-- Custom fonts for this template -->
+    <link href="../../Header/Ejemplo_pagina/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="../../Header/Ejemplo_pagina/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="../../Header/Ejemplo_pagina/css/freelancer.min.css" rel="stylesheet">
+
+    <title>YOLIA</title>
+    <style type="text/css">
+      body{
+        background-color: white;
+        overflow: auto;
+      }
+      #consultar{
+        position: absolute;
+        /*nos posicionamos en el centro del navegador*/
+        top:50%;
+        left:50%;
+        /*determinamos una anchura*/
+        width:900px;
+        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+        margin-left:-450px;
+        /*determinamos una altura*/
+        height:500px;
+        border-radius: 25px;
+        overflow: auto;
+        /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-top:-195px;
+        margin-bottom:-80px;
+        background-color: #ebd2f6;
+        border:1px solid #c6c6c6;
+      }
+      #tabla{
+
+        /*nos posicionamos en el centro del navegador*/
+
+        /*determinamos una anchura*/
+        width:750px;
+        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+        /*determinamos una altura*/
+        height:330px;
+        border-radius: 25px;
+        overflow: auto;
+        /*indicamos que el margen superior, es la mitad de la altura*/
+
+        background-color: white;
+        border:1px solid #c6c6c6;
+      }
+      #botones{
+        /*nos posicionamos en el centro del navegador*/
+
+        /*determinamos una anchura*/
+        width:750px;
+        /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
+        /*determinamos una altura*/
+        height:42px;
+        border-radius: 25px;
+
+        /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-bottom: 20px;
+      }
+      #modificar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
+      #modificar:hover{
+        background-color: #555555;
+        color: white;
+      }
+      #aplicar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        margin-left:60px;
+      }
+      #aplicar:hover{
+        background-color: #555555;
+        color: white; 
+      }
+      #eliminar{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        margin-left:114px;
+      }
+      #eliminar:hover{
+        background-color: #555555;
+        color: white;  
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">YOLIA</a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/pacientes.ejs">Regresar</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login.ejs">Cerrar sesión</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+
+    <div id = "consultar" class = "container">
+      <br>
+      <center><h5>Información del paciente</h5></center>
+      <br>
+      <div id = "tabla" class = "container col-lg8 col-xs-12 col-centered">
+        <br>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apellido materno</th>
+              <th>Fecha de nacimiento</th>
+              <th>Género</th>
+              <th>Teléfono</th>
+              <th>Alergias</th>
+              <th>Tipo de sangre</th>
+              <th>Estado civil</th>
+              <th>Número de incidencias</th>
+              <th>ID Doctor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (data) { %>
+              <% for (var i = 0; i < data.length; i++) {%>
+                <tr>
+                  <td><%= data[i].idPaciente %></td>
+                  <td><%= data[i].Nombre %></td>
+                  <td><%= data[i].ApPaterno %></td>
+                  <td><%= data[i].ApMaterno %></td>
+                  <td><%= data[i].FechaNac %></td>
+                  <td><%= data[i].Genero %></td>
+                  <td><%= data[i].Telefono %></td>
+                  <td><%= data[i].Alergias %></td>
+                  <td><%= data[i].TipoSangre %></td>
+                  <td><%= data[i].EdoCivil %></td>
+                  <td><%= data[i].NoIncidencias %></td>
+                  <td><%= data[i].idDoctor %></td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div id = "botones" class = "container">
+        <button type="submit" id="modificar" class="btn btn-success" onclick="window.location.href='/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>/pacientes_update.ejs'">Modificar datos del paciente</button><button type="submit" id="aplicar" class="btn btn-success">Aplicar cuestionario</button><button type="submit" id="eliminar" class="btn btn-success" onclick="window.location.href='/pacientes.ejs/info_paciente.ejs'">Eliminar paciente</button>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="../../resources/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
