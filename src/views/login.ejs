@@ -95,14 +95,16 @@
       <br>
       <center><h2>Iniciar sesión</h2></center>
       <br>
-      <label for="usuario">Usuario</label>      
-      <input type="text" id ="usr" name="usuar" class="form-control" placeholder="Nombre de usuario">
-      <label for="contrasena">Contraseña</label>
-      <input type="password" id="pwd" name="contrasena" class="form-control" placeholder="Ingrese su contraseña ...">
-
+      <form action ="/pacientes.ejs" method ="post">  
+        <label for="usuario">Usuario</label>      
+        <input type="text" id ="usr" name="NombUsuario" class="form-control" placeholder="Nombre de usuario">
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="pwd" name="Contrasena" class="form-control" placeholder="Ingrese su contraseña ...">
+      
       <br>
 
-      <center><button type="submit" id="entrar" class="btn btn-success" onclick="window.location.href='/pacientes.ejs'">Entrar</button></center>
+      <center><button type="submit" id="entrar" class="btn btn-success">Entrar</button></center>
+      </form>
       <br>
       <center><button type="submit" id="registrar" class="btn btn-success" onclick="window.location.href='/login.ejs/reg_doct.ejs'">Registrarse</button></center>
     </div>
