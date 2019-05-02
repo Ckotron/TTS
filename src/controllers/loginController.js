@@ -21,7 +21,7 @@ controller.list = (req,res) =>{
 		conn.query('SELECT NombUsuario, Contrasena FROM doctores WHERE NombUsuario = ? AND Contrasena = ?', [nombU,contra], (err, doctores) =>{
 			if(err){
 				res.json(err);
-			}else if (doctores.length = 0){
+			}else if (doctores.length == 0){
 				console.log(doctores);
 				res.redirect('/login.ejs');
 			}else{
