@@ -31,6 +31,14 @@ const reg_doctRoutes = require('./routes/reg_doct.js');
 const reg_pacRoutes = require('./routes/reg_pac.js');
 const info_pacienteRoutes = require('./routes/info_paciente.js');
 const pacientes_updRoutes = require('./routes/pacientes_update.js');
+const ini_cuestRoutes = require('./routes/ini_cuest.js');
+const ssm_ersRoutes = require('./routes/ssm_ers.js');
+const phq_2Routes = require('./routes/phq_2.js');
+const phq_9Routes = require('./routes/phq_9.js');
+const rflRoutes = require('./routes/rfl.js');
+const citaRoutes = require('./routes/cita.js');
+const cita_updRoutes = require('./routes/cita_update.js');
+const reg_citaRoutes = require('./routes/reg_cita.js');
 
 //routes
 app.use('/',inicioRoutes);
@@ -40,6 +48,14 @@ app.use('/',reg_doctRoutes);
 app.use('/',reg_pacRoutes);
 app.use('/',info_pacienteRoutes);
 app.use('/',pacientes_updRoutes);
+app.use('/',ini_cuestRoutes);
+app.use('/',ssm_ersRoutes);
+app.use('/',phq_2Routes);
+app.use('/',phq_9Routes);
+app.use('/',rflRoutes);
+app.use('/',citaRoutes);
+app.use('/',cita_updRoutes);
+app.use('/',reg_citaRoutes);
 
 //static files
 app.use(express.static(path.join(__dirname,'public')));

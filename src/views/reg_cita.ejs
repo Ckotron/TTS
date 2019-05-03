@@ -7,19 +7,20 @@
 
     <!-- bug asqueroso -->
     <link rel="shortcut icon" href="">
+
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css">
 
     <!-- Custom fonts for this template -->
-    <link href="../Header/Ejemplo_pagina/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../Header/Ejemplo_pagina/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Plugin CSS -->
-    <link href="../Header/Ejemplo_pagina/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="../../../Header/Ejemplo_pagina/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="../Header/Ejemplo_pagina/css/freelancer.min.css" rel="stylesheet">
+    <link href="../../../Header/Ejemplo_pagina/css/freelancer.min.css" rel="stylesheet">
 
     <title>VITAE</title>
     <style type="text/css">
@@ -77,6 +78,9 @@
       #fechaNac{
         width: 70%;
       }
+      #tel{
+        width: 63%;
+      }
       #registrar{
         background-color: white;
         color: black;
@@ -95,8 +99,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login.ejs">Regresar</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/pacientes.ejs/info_paciente/<%= data[0].idPaciente %>">Regresar</a>
           </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login.ejs">Cerrar sesión</a>
           </li>
         </ul>
       </div>
@@ -104,73 +110,23 @@
     </nav>
 
     <div id = "consultar" class = "container col-lg8 col-xs-12 col-centered">
-      <form action ="/login.ejs" method ="post">
       <br>
-      <center><h5>Registrar doctor</h5></center>
+      <center><h5>Registrar cita</h5></center>
       <br>
+      <form action ="/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>/reg_cita.ejs/add_cita" method ="post">
       <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
         <br>
-        <label for="nombr">Nombre</label>      
-        <input type="text" id ="nombr" name="Nombre" class="form-control" placeholder="Nombre">
-        <table id = "tab">
-          <tr>
-            <td><label for="apPat">Apellido paterno</label></td>
-            <td><label for="apMat">Apellido materno</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="apPat" name="ApPaterno" class="form-control" placeholder="Apellido paterno"></td>
-            <td><input type="text" id ="apMat" name="ApMaterno" class="form-control" placeholder="Apellido materno"></td>
-          </tr>
-        </table>
-        <table id = "tabgen">
-          <tr>
-            <td width = >
-              <label for="fechaNac">Fecha de nacimiento</label>      
-            </td>
-            <td><label>Género</label></td>
-          </tr>   
-          <tr>
-          <td><input type="date" id ="fechaNac" name="FechaNac" class="form-control"></td>
-          <td><div class="radio">
-            <label>
-              <input type="radio" name="Genero" id="masc" value="M" checked>
-              Masculino
-            </label>
-          </div></td>
-          <td><div class="radio">
-            <label>
-              <input type="radio" name="Genero" id="fem" value="F">
-              Femenino
-            </label>
-          </div></td>
-          </tr>
-        </table>
-        <table id = "tab">
-          <tr>
-            <td><label for="tel">Teléfono</label></td>
-            <td><label for="idCorreo">Correo</label></td>
-          </tr>      
-          <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono"></td>
-            <td><input type="text" id ="idCorreo" name="Correo" class="form-control" placeholder="Correo"></td>
-          </tr>
-        </table>
-        <table id = "tab">
-          <tr>
-            <td><label for="usr">Usuario</label></td>
-            <td><label for="pswd">Contraseña</label></td>
-          </tr>      
-          <tr>
-            <td><input type="text" id ="usr" name="NombUsuario" class="form-control" placeholder="Usuario"></td>
-            <td><input type="password" id ="pswd" name="Contrasena" class="form-control" placeholder="Contraseña"></td>
-          </tr>
-        </table>
-        
+        <label for="nombr">Fecha</label>      
+        <input type="date" id ="nombr" name="Fecha" class="form-control" placeholder="Fecha">
+        <label for="nombr">ID del paciente</label>      
+        <input type="text" id ="nombr" name="idPaciente" class="form-control" value = "<%= data[0].idPaciente %>" disabled>
+        <label for="nombr">ID del doctor</label>      
+        <input type="text" id ="nombr" name="idDoctor" class="form-control" placeholder="ID del doctor">
         <br>
       </div>
       <br>
       <div id = "botones" class = "container">
-      <center><button type="submit" id="registrar" class="btn btn-success">Registrar doctor</button></center>
+      <center><button type="submit" id="registrar" class="btn btn-success">Registrar cita</button></center>
       </div>
       </form>
     </div>
@@ -178,6 +134,6 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="../resources\js\bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../../../../resources/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
