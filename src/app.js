@@ -26,6 +26,7 @@ app.use(express.urlencoded({extended: true})); //El módulo de express que tradu
 //importing routes
 const inicioRoutes = require('./routes/inicio.js');
 const loginRoutes = require('./routes/login.js');
+const indexRoutes = require ('./routes/index.js');
 const pacientesRoutes = require('./routes/pacientes.js');
 const reg_doctRoutes = require('./routes/reg_doct.js');
 const reg_pacRoutes = require('./routes/reg_pac.js');
@@ -43,6 +44,7 @@ const reg_citaRoutes = require('./routes/reg_cita.js');
 //routes
 app.use('/',inicioRoutes);
 app.use('/',loginRoutes);
+app.use('/',indexRoutes);
 app.use('/',pacientesRoutes);
 app.use('/',reg_doctRoutes);
 app.use('/',reg_pacRoutes);

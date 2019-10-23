@@ -26,7 +26,7 @@ controller.list = (req,res) =>{
 				res.redirect('/login.ejs');
 			}else{
 				console.log(doctores);
-				res.redirect('/pacientes.ejs');
+				res.redirect('/index.ejs');
 			}
 		});
 	});

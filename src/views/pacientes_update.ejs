@@ -1,15 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 
     <!-- bug asqueroso -->
     <link rel="shortcut icon" href="">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../../app-assets/images/ico/apple-icon-60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../../app-assets/images/ico/apple-icon-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../app-assets/images/ico/apple-icon-152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="../../../app-assets/images/ico/favicon-32.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap.css">
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/pace.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/colors.css">
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/vertical-overlay-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/colors/palette-gradient.css">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/style.css">
+    <!-- END Custom CSS-->
 
     <!-- Custom fonts for this template -->
     <link href="../../../Header/Ejemplo_pagina/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,9 +58,11 @@
         overflow: auto;
       }
       #consultar{
+        
         /*determinamos una anchura*/
-        width:700px;
+        width:900px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+
         /*determinamos una altura*/
         height:500px;
         border-radius: 25px;
@@ -42,11 +73,15 @@
         background-color: #ebd2f6;
         border:1px solid #c6c6c6;
       }
-      #inputs{
+      #sticky-footer {
+        flex-shrink: none;
+      }
+      #tabla{
 
         /*nos posicionamos en el centro del navegador*/
+
         /*determinamos una anchura*/
-        width:600px;
+        width:750px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
 
         /*determinamos una altura*/
@@ -54,8 +89,11 @@
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
+
+        background-color: white;
         border:1px solid #c6c6c6;
       }
+      /*Hacer que el div que contiene al footer quede siempre abajo*/
       #botones{
         /*nos posicionamos en el centro del navegador*/
 
@@ -68,220 +106,278 @@
         border-radius: 25px;
 
         /*indicamos que el margen superior, es la mitad de la altura*/
+        margin-bottom: 20px;
       }
-      #tab{
-        width: 100%;
-      }
-      #tabgen{
-        width: 100%;
-      }
-      #fechaN{
-        width: 100%;
-      }
-      #tel{
-        width: 100%;
-      }
-      #modificar{
+      #estilo_btn{
         background-color: white;
         color: black;
         border: 2px solid #555555;
       }
-      #modificar:hover{
+      #estilo_btn:hover{
         background-color: #555555;
         color: white;
       }
     </style>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">VITAE</a>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>">Regresar</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login.ejs">Cerrar sesión</a>
-          </li>
-        </ul>
-      </div>
+  <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns fixed-navbar">
+    <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav">
+            <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a></li>
+            <li class="nav-item"><a href="/inicio.ejs" class="navbar-brand nav-link"><img alt="branding logo" src="../../../app-assets/images/logo/robust-logo-light.png" data-expand="../../../app-assets/images/logo/robust-logo-light.png" data-collapse="../../../app-assets/images/logo/robust-logo-small.png" class="brand-logo"></a></li>
+            <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
+          </ul>
+        </div>
+        <div class="navbar-container content container-fluid">
+            <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
+            <ul class="nav navbar-nav">
+              <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5"></i></a></li>
+              <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i class="ficon icon-expand2"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav float-xs-right">
+              <li class="nav-item hidden-sm-down"><a id="estilo_btn" href="/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>" class="btn btn-success upgrade-to-pro">Regresar</a></li>
+            </ul>
+            </div>
+          </div>
       </div>
     </nav>
 
-    <div id = "consultar" class = "container col-lg8 col-xs-12 col-centered">
-      <br>
-      <center><h5>Modificar datos del paciente</h5></center>
-      <center><b><font color = "red">Favor de verificar que la fecha de nacimiento y los datos de opción múltiple sean correctos.</font></b></center>
-      <br>
-      <form action ="/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>" method ="post">
-      <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
-        <br>
-        <table id = "tab">
-          <tr>
-            <th><label>Valor anterior</label></th>
-            <th><label>Nuevo valor</label></th>
-          </tr>
-          <tr>
-            <td><label for="nombr1">Nombre</label></td>
-            <td><label for="nombr2">Nombre</label></td>
-          </tr>      
-          <tr>
-            <td><input type="text" id ="nombr1" name="NombreV" class="form-control" value = "<%= data[0].Nombre %>" disabled></td>
-            <td><input type="text" id ="nombr2" name="Nombre" class="form-control" value = "<%= data[0].Nombre %>"></td>
-          </tr>
-          <tr>
-            <td><label for="apPat1">Apellido paterno</label></td>
-            <td><label for="apPat2">Apellido paterno</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="apPat1" name="ApPaternoV" class="form-control" value = "<%= data[0].ApPaterno %>" disabled></td>
-            <td><input type="text" id ="apPat2" name="ApPaterno" class="form-control" value = "<%= data[0].ApPaterno %>"></td>
-          </tr>
-          <tr>
-            <td><label for="apMat1">Apellido materno</label></td>
-            <td><label for="apMat2">Apellido materno</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="apMat1" name="ApMaternoV" class="form-control" value = "<%= data[0].ApMaterno %>" disabled></td>
-            <td><input type="text" id ="apMat2" name="ApMaterno" class="form-control" value = "<%= data[0].ApMaterno %>"></td>
-          </tr>
-          <tr>
-            <td><label for="fechaN1">Fecha de nacimiento</label></td>
-            <td><label for="fechaN2">Fecha de nacimiento</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="fechaN1" name="FechaNacV" class="form-control" value = "<%= data[0].FechaNac %>" readonly = "readonly"></td>
-            <td><input type="date" id ="fechaN2" name="FechaNac" class="form-control"></td>
-          </tr>
-          <tr>
-            <td><label>Género</label></td>
-            <td><label>Género</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="gen1" name="GeneroV" class="form-control" value = "<%= data[0].Genero %>" disabled></td>
-            <td>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="Genero" id="masc" value="M" checked>
-                  Masculino
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="Genero" id="fem" value="F">
-                  Femenino
-                </label>
-              </div>  
-            </td>
-          </tr>
-          <tr>
-            <td><label for="tel1">Teléfono</label></td>
-            <td><label for="tel2">Teléfono</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="tel1" name="TelefonoV" class="form-control" value = "<%= data[0].Telefono %>" disabled></td>
-            <td><input type="text" id ="tel2" name="Telefono" class="form-control" value = "<%= data[0].Telefono %>"></td>
-          </tr>
-          <tr>
-            <td><label for="alerg">Alergias</label></td>
-            <td><label for="alerg">Alergias</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="aler1" name="AlergiasV" class="form-control" value = "<%= data[0].Alergias %>" disabled></td>
-            <td>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="Alergias" id="y" value="Si" checked>
-                  Sí
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="Alergias" id="n" value="No">
-                    No
-                </label>
-              </div>  
-            </td>
-          </tr>
-          <tr>
-            <td><label for="tips1">Tipo de sangre</label></td>
-            <td><label for="tips2">Tipo de sangre</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="tipS1" name="TipoSangreV" class="form-control" value = "<%= data[0].TipoSangre %>" disabled></td>
-            <td>
-              <select class="form-control" name = "TipoSangre">
-                <option value = "A+">A+</option>
-                <option value = "B+">B+</option>
-                <option value = "O+">O+</option>
-                <option value = "AB+">AB+</option>
-                <option value = "A-">A-</option>
-                <option value = "B-">B-</option>
-                <option value = "O-">O-</option>
-                <option value = "AB-">AB-</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><label>Estado civil</label></td>
-            <td><label>Estado civil</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="edoC1" name="EdoCivilV" class="form-control" value = "<%= data[0].EdoCivil %>" disabled></td>
-            <td>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="EdoCivil" id="Solter2" value="Soltero(a)" checked> 
-                  Soltero(a)
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="EdoCivil" id="Casad2" value="Casado(a)"> 
-                  Casado(a)
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="EdoCivil" id="Divor2" value="Divorciado(a)"> 
-                  Divorciado(a)
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="EdoCivil" id="Viud2" value="Viudo(a)"> 
-                  Viudo(a)
-                </label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><label for="noInci1">Número de incidencias</label></td>
-            <td><label for="noInci2">Número de incidencias</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="noInci1" name="NoIncidenciasV" class="form-control" value = "<%= data[0].NoIncidencias %>" disabled></td>
-            <td><input type="text" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>"></td>
-          </tr>
-          <tr>
-            <td><label for="idDoc1">ID del doctor</label></td>
-            <td><label for="idDoc2">ID del doctor</label></td>
-          </tr>
-          <tr>
-            <td><input type="text" id ="idDoc1" name="idDoctorV" class="form-control" value = "<%= data[0].idDoctor %>" disabled></td>
-            <td><input type="text" id ="idDoc2" name="idDoctor" class="form-control" value = "<%= data[0].idDoctor %>" disabled></td>
-          </tr>
-        </table>
-        <br>
+<!-- main menu-->
+    <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+      <!-- / main menu header-->
+      <!-- main menu content-->
+      <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+          <li><a href="/index.ejs"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Inicio</span></a>
+            
+          </li>
+          <li class="nav-item"><a href="/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
+            <ul class="menu-content">
+              <li class="active"><a href="/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Consultar pacientes</a>
+              </li>
+              <li><a href="/reg_pac.ejs" data-i18n="nav.dash.main" class="menu-item">Registrar pacientes</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
-      <br>
-      <div id = "botones" class = "container">
-      <center><button type="submit" id="modificar" class="btn btn-success">Modificar datos</button></center>
-      </div>
-      <br>
-      </form>
+      <!-- /main menu content-->
+      <!-- main menu footer-->
+      <!-- include includes/menu-footer-->
+      <!-- main menu footer-->
     </div>
+    <!-- / main menu-->
+    <div class="app-content content container-fluid">
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><!-- stats -->
+          <div class="row">
+            <div class="card">
+              <div class="card-block">          
+                <br>
+                <center><form action ="/pacientes.ejs/info_paciente.ejs/<%= data[0].idPaciente %>" method ="post">
+                  <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
+                  <br>
+                  <table id = "tab">
+                  <tr>
+                    <th><label>Valor anterior</label></th>
+                    <th><label>Nuevo valor</label></th>
+                  </tr>
+                  <tr>
+                    <td><label for="nombr1">Nombre</label></td>
+                    <td><label for="nombr2">Nombre</label></td>
+                  </tr>      
+                  <tr>
+                    <td><input type="text" id ="nombr1" name="NombreV" class="form-control" value = "<%= data[0].Nombre %>" disabled></td>
+                    <td><input type="text" id ="nombr2" name="Nombre" class="form-control" value = "<%= data[0].Nombre %>"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="apPat1">Apellido paterno</label></td>
+                    <td><label for="apPat2">Apellido paterno</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="apPat1" name="ApPaternoV" class="form-control" value = "<%= data[0].ApPaterno %>" disabled></td>
+                    <td><input type="text" id ="apPat2" name="ApPaterno" class="form-control" value = "<%= data[0].ApPaterno %>"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="apMat1">Apellido materno</label></td>
+                    <td><label for="apMat2">Apellido materno</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="apMat1" name="ApMaternoV" class="form-control" value = "<%= data[0].ApMaterno %>" disabled></td>
+                    <td><input type="text" id ="apMat2" name="ApMaterno" class="form-control" value = "<%= data[0].ApMaterno %>"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="fechaN1">Fecha de nacimiento</label></td>
+                    <td><label for="fechaN2">Fecha de nacimiento</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="fechaN1" name="FechaNacV" class="form-control" value = "<%= data[0].FechaNac %>" readonly = "readonly"></td>
+                    <td><input type="date" id ="fechaN2" name="FechaNac" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <td><label>Género</label></td>
+                    <td><label>Género</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="gen1" name="GeneroV" class="form-control" value = "<%= data[0].Genero %>" disabled></td>
+                    <td>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="Genero" id="masc" value="M" checked>
+                          Masculino
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="Genero" id="fem" value="F">
+                          Femenino
+                        </label>
+                      </div>  
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="tel1">Teléfono</label></td>
+                    <td><label for="tel2">Teléfono</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="tel1" name="TelefonoV" class="form-control" value = "<%= data[0].Telefono %>" disabled></td>
+                    <td><input type="text" id ="tel2" name="Telefono" class="form-control" value = "<%= data[0].Telefono %>"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="alerg">Alergias</label></td>
+                    <td><label for="alerg">Alergias</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="aler1" name="AlergiasV" class="form-control" value = "<%= data[0].Alergias %>" disabled></td>
+                    <td>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="Alergias" id="y" value="Si" checked>
+                          Sí
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="Alergias" id="n" value="No">
+                          No
+                        </label>
+                      </div>  
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="tips1">Tipo de sangre</label></td>
+                    <td><label for="tips2">Tipo de sangre</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="tipS1" name="TipoSangreV" class="form-control" value = "<%= data[0].TipoSangre %>" disabled></td>
+                    <td>
+                      <select class="form-control" name = "TipoSangre">
+                        <option value = "A+">A+</option>
+                        <option value = "B+">B+</option>
+                        <option value = "O+">O+</option>
+                        <option value = "AB+">AB+</option>
+                        <option value = "A-">A-</option>
+                        <option value = "B-">B-</option>
+                        <option value = "O-">O-</option>
+                        <option value = "AB-">AB-</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label>Estado civil</label></td>
+                    <td><label>Estado civil</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="edoC1" name="EdoCivilV" class="form-control" value = "<%= data[0].EdoCivil %>" disabled></td>
+                    <td>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="EdoCivil" id="Solter2" value="Soltero(a)" checked> 
+                          Soltero(a)
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="EdoCivil" id="Casad2" value="Casado(a)"> 
+                          Casado(a)
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="EdoCivil" id="Divor2" value="Divorciado(a)"> 
+                          Divorciado(a)
+                        </label>
+                      </div>
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="EdoCivil" id="Viud2" value="Viudo(a)"> 
+                          Viudo(a)
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="noInci1">Número de incidencias</label></td>
+                    <td><label for="noInci2">Número de incidencias</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="noInci1" name="NoIncidenciasV" class="form-control" value = "<%= data[0].NoIncidencias %>" disabled></td>
+                    <td><input type="text" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="idDoc1">ID del doctor</label></td>
+                    <td><label for="idDoc2">ID del doctor</label></td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" id ="idDoc1" name="idDoctorV" class="form-control" value = "<%= data[0].idDoctor %>" disabled></td>
+                    <td><input type="text" id ="idDoc2" name="idDoctor" class="form-control" value = "<%= data[0].idDoctor %>" disabled></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><br></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><center><button type="submit" id="estilo_btn" class="btn btn-success">Modificar datos</button></center></td>
+                  </tr>
+                </table>
+                <br>
+              </div>  
+              </form></center>
+              <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <footer class="footer footer-static footer-light navbar-border">
+      <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2019 <a href="/inicio.ejs" target="_blank" class="text-bold-800 grey darken-2">VITAE </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block"></span></p>
+    </footer>
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="../../../app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
+    <script src="../../../app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="../../../app-assets/vendors/js/charts/chart.min.js" type="text/javascript"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="../../../app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="../../../app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="../../../app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL JS-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

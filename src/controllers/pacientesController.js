@@ -13,4 +13,8 @@ controller.list = (req,res) =>{
 	});
 };
 
+controller.rendering = (req,res) =>{
+	res.render('reg_pac');
+};
+
 module.exports = controller;
