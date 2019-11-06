@@ -1,10 +1,12 @@
 const controller = {};
 let idPac = -1;
+let idDoc = -1;
 
 controller.rendering = (req,res) =>{
 	idPac = req.params.id;
+	idDoc = req.params.idDoc;
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT idPaciente FROM pacientes WHERE idPaciente = ?', [idPac],(err, reg_cita) =>{
+		conn.query('SELECT idPaciente, idDoctor FROM pacientes WHERE idPaciente = ?', [idPac],(err, reg_cita) =>{
 			if(err){
 				res.json(err);
 			}
@@ -18,16 +20,17 @@ controller.rendering = (req,res) =>{
 
 controller.save = (req,res) =>{
 	const fch = req.body.Fecha;
-	const idDoc = req.body.idDoctor;
+	const horaini = req.body.HoraInicio;
+	idDoc = req.params.idDoc;
 
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('INSERT INTO cita (Fecha, idPaciente, idDoctor) VALUES(?,?,?);', [fch, idPac, idDoc], (err, citas) =>{
+		conn.query('INSERT INTO Aplicacion (Fecha, HoraInicio, idPaciente) VALUES(?,?,?);', [fch, horaini, idPac], (err, citas) =>{
 			console.log(citas);
 		});
 	});
 
-	res.redirect('/pacientes.ejs/info_paciente.ejs/'+idPac);
+	res.redirect('/'+idDoc+'/pacientes.ejs/info_paciente.ejs/'+idPac);
 };
 
 module.exports = controller;

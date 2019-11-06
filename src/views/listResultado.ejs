@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Reporte de Paciente</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style type="text/css">
+      #estilo_btn{
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
+      #estilo_btn:hover{
+        background-color: #555555;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+	<div class="mt-5 ml-5 mr-5 mb-5">
+		<nav class="navbar navbar-dark bg-success">
+			<a class="navbar-brand mx-auto text-light">Reporte</a>
+		</nav>
+		<div class="row">
+			<div class="col-md 6 mt-4 text-center">
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand mx-auto text-black">Información del Paciente</a>
+		</nav>
+		<div class="row">
+			<div class="col-md 6 mt-2 text-center">
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido Paterno</th>
+							<th>Apellido Materno</th>
+							<th>Fecha de Aplicacion</th>
+						</tr>
+					</thead>
+						<tr>
+							<td><%= notas[0].Nombre%></td>
+							<td><%= notas[0].ApPaterno%></td>
+							<td><%= notas[0].ApMaterno%></td>
+							<td><%= notas[0].Fecha%></td>
+						</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md 5 mt-5 text-center">
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-info">
+			<a class="navbar-brand mx-auto text-light">Resultados de los Cuestionarios</a>
+		</nav>
+		<div class="row">
+			<div class="col-md 5 mt-2 text-center">
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th>Resultado</th>
+							<th>Interpretación del Resultado</th>
+							<th>Observaciones del Cuestionario</th>
+						</tr>
+					</thead>
+					<% for(var i = 0; i < cala.length; i++) { %>
+						<tr>
+							<td><%= cala[i].ValorR%></td>
+							<td><%= cala[i].InterpretacionV%></td>
+							<td><%= cala[i].ObservacionesCuestionario%></td>		
+						</tr>
+					<% } %>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md 6 mt-4 text-center">
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-success">
+			<a class="navbar-brand mx-auto text-light">Porcentaje de incidencias encontradas</a>
+		</nav>
+		<div class="row">
+			<div class="col-md 5 mt-2 text-center">
+
+				<table class="table">
+					<thead class="thead-light">
+						<tr>
+							<th>Variable</th>
+							<th>Porcentaje obtenido en los cuestionarios</th>
+						</tr>
+					</thead>
+			<% if (regresion) { %>
+                <% for (var i = 0; i < regresion.length; i++) {%>
+						<tr>
+							<td><%= regresion[i].DescRegresion%></td>
+							<%if((respcuest[i].ValorR >= 1 && respcuest[i].ValorR <= 4) && i == 0){%>
+							<td>20%</td>
+							<%}else if((respcuest[i].ValorR >= 5 && respcuest[i].ValorR <= 9) && i == 0){%>
+							<td>40%</td>
+							<%}else if((respcuest[i].ValorR >= 10 && respcuest[i].ValorR <= 14) && i == 0){%>
+							<td>60%</td>
+							<%}else if((respcuest[i].ValorR >= 15 && respcuest[i].ValorR <= 19) && i == 0){%>
+							<td>80%</td>
+							<%}else if((respcuest[i].ValorR >= 20 && respcuest[i].ValorR <= 27) && i == 0){%>
+							<td>100%</td>
+							<%}else if((respcuest[i].ValorR >= 3 && respcuest[i].ValorR <= 6) && i == 1){%>
+							<td>100%</td>
+							<%}else if((respcuest[i].ValorR >= 7 && respcuest[i].ValorR <= 10) && i == 1){%>
+							<td>75%</td>
+							<%}else if((respcuest[i].ValorR >= 11 && respcuest[i].ValorR <= 14) && i == 1){%>
+							<td>50%</td>
+							<%}else if((respcuest[i].ValorR >= 15 && respcuest[i].ValorR <= 18) && i == 1){%>
+							<td>25%</td>
+							<%}%>
+						</tr>
+				<% } %>
+            <% } %>
+				</table>
+
+			</div>
+		</div>
+			<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+				<a class="navbar-brand mx-auto text-light">Observaciones del paciente</a>
+			</nav>
+		<div class="row">
+			<div class="col-md 5 mt-2 text-center">
+		    	<div class='form-group'> 
+			    	<textarea class="form-control" name="observaciones" rows="7" disabled><%=visu[0].Observaciones%></textarea>
+			    	<br>
+			    	<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=notas[0].idDoctor%>/histclinico.ejs'">Regresar</button>
+		    	</div>
+		    </div>
+		</div>		
+	</dive>
+</body>
+</html>

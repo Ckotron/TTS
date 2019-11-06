@@ -3,7 +3,7 @@ const router = express.Router();
 
 const rflController = require('../controllers/rflController.js');
 
-router.get('/pacientes.ejs/info_paciente.ejs/:id/ini_cuest.ejs/rfl.ejs', rflController.list);
-router.post('/pacientes.ejs/info_paciente.ejs/:id/ini_cuest.ejs/cuest4', rflController.save);
+router.get('/:idDoc/atender.ejs/ini_cuest.ejs/rfl.ejs/:idPac/:idFch', rflController.list);
+router.post('/:idDoc/atender.ejs/ini_cuest.ejs/rfl.ejs/:idPac/cuest4', rflController.save);
 
 module.exports = router;

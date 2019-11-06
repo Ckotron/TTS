@@ -3,7 +3,7 @@ const router = express.Router();
 
 const ssm_ersController = require('../controllers/ssm_ersController.js');
 
-router.get('/pacientes.ejs/info_paciente.ejs/:id/ini_cuest.ejs/ssm_ers.ejs', ssm_ersController.list);
-router.post('/pacientes.ejs/info_paciente.ejs/:id/ini_cuest.ejs/cuest1', ssm_ersController.save);
+router.get('/:idDoc/atender.ejs/ini_cuest.ejs/ssm_ers.ejs/:idPac/:idFch', ssm_ersController.list);
+router.post('/:idDoc/atender.ejs/ini_cuest.ejs/ssm_ers.ejs/:idPac/cuest1', ssm_ersController.save);
 
 module.exports = router;

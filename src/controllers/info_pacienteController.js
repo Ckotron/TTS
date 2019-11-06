@@ -1,8 +1,10 @@
 const controller = {};
 let id = -1;
+let idDoc = -1;
 
 controller.list = (req,res) =>{
 	id = req.params.id;
+	idDoc = req.params.idDoc;
 
 	req.getConnection((err,conn) =>{
 		conn.query('SELECT * FROM pacientes WHERE idPaciente = ?', [id], (err, paciente) =>{
@@ -23,7 +25,7 @@ controller.delete = (req,res) =>{
 			if(err){
 				res.json(err);
 			}
-			res.redirect('/pacientes.ejs');
+			res.redirect('/'+idDoc+'/pacientes.ejs');
 		});
 	});
 };

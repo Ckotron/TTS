@@ -1,20 +1,12 @@
 const controller = {};
-
-controller.list = (req,res) =>{
-	req.getConnection((err,conn) =>{
-		conn.query('SELECT idPaciente, Nombre, ApPaterno, ApMaterno FROM pacientes', (err, index) =>{
-			if(err){
-				res.json(err);
-			}
-			res.render('index', {
-				data: index
-			});
-		});
-	});
-};
+let id = -1;
 
 controller.rendering = (req,res) =>{
-	res.render('reg_pac');
+	id = req.params.idDoc;
+	console.log(id);
+	res.render('index', {
+		data: id
+	});
 };
 
 module.exports = controller;

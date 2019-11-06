@@ -17,7 +17,8 @@ app.use(myConnection(mysql, {
 	host: 'localhost',
    	user: 'root',
    	password: 'root',
-   	database: 'TTS',
+   	database: 'TTSuicide',
+   	dateStrings:true,
    	port: 3306
 }, 'single'));
 app.use(express.json());
@@ -40,6 +41,12 @@ const rflRoutes = require('./routes/rfl.js');
 const citaRoutes = require('./routes/cita.js');
 const cita_updRoutes = require('./routes/cita_update.js');
 const reg_citaRoutes = require('./routes/reg_cita.js');
+const visuacitRoutes = require('./routes/visuacit.js');
+const histclinicoRoutes = require('./routes/histclinico.js');
+const atenderRoutes = require('./routes/atender.js');
+const generreporRoutes = require('./routes/generar_reporte.js');
+const diagRoutes = require('./routes/diagnosticar.js');
+const listResRoutes = require('./routes/listResultado.js');
 
 //routes
 app.use('/',inicioRoutes);
@@ -58,6 +65,12 @@ app.use('/',rflRoutes);
 app.use('/',citaRoutes);
 app.use('/',cita_updRoutes);
 app.use('/',reg_citaRoutes);
+app.use('/',visuacitRoutes);
+app.use('/',histclinicoRoutes);
+app.use('/',atenderRoutes);
+app.use('/',generreporRoutes);
+app.use('/',diagRoutes);
+app.use('/',listResRoutes);
 
 //static files
 app.use(express.static(path.join(__dirname,'public')));

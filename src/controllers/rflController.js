@@ -1,17 +1,27 @@
 const controller = {};
-let id = -1;
+let idPac = -1;
+let idDoc = -1;
+let idFch = -1;
 
 controller.list = (req,res) =>{
-	id = req.params.id;
+	idPac = req.params.idPac;
+	idDoc = req.params.idDoc;
+	idFch = req.params.idFch;
+	
 	console.log('RFL');
-	console.log(id);
+	console.log(idPac);
+	console.log(idDoc);
+	console.log(idFch);
+
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT idPaciente FROM pacientes WHERE idPaciente = ?', [id], (err, idpaciente) =>{
+		conn.query('SELECT idPaciente FROM pacientes WHERE idPaciente = ?', [idPac], (err, idpaciente) =>{
 			if(err){
 				res.json(err);
 			}
 			res.render('rfl', {
-				data: idpaciente
+				data: idpaciente,
+				doc: idDoc,
+				fch: idFch
 			});
 		});
 	});
@@ -19,7 +29,66 @@ controller.list = (req,res) =>{
 
 controller.save = (req,res) =>{
 	console.log('RFL_SAVE');
-	console.log(id);
+	console.log(idPac);
+	console.log(idDoc);
+	console.log(idFch);
+
+	const idPregunta1 = 1;
+	const idPregunta2 = 2;
+	const idPregunta3 = 3;
+	const idPregunta4 = 4;
+	const idPregunta5 = 5;
+	const idPregunta6 = 6;
+	const idPregunta7 = 7;
+	const idPregunta8 = 8;
+	const idPregunta9 = 9;
+	const idPregunta10 = 10;
+	const idPregunta11 = 11;
+	const idPregunta12 = 12;
+	const idPregunta13 = 13;
+	const idPregunta14 = 14;
+	const idPregunta15 = 15;
+	const idPregunta16 = 16;
+	const idPregunta17 = 17;
+	const idPregunta18 = 18;
+	const idPregunta19 = 19;
+	const idPregunta20 = 20;
+	const idPregunta21 = 21;
+	const idPregunta22 = 22;
+	const idPregunta23 = 23;
+	const idPregunta24 = 24;
+	const idPregunta25 = 25;
+	const idPregunta26 = 26;
+	const idPregunta27 = 27;
+	const idPregunta28 = 28;
+	const idPregunta29 = 29;
+	const idPregunta30 = 30;
+	const idPregunta31 = 31;
+	const idPregunta32 = 32;
+	const idPregunta33 = 33;
+	const idPregunta34 = 34;
+	const idPregunta35 = 35;
+	const idPregunta36 = 36;
+	const idPregunta37 = 37;
+	const idPregunta38 = 38;
+	const idPregunta39 = 39;
+	const idPregunta40 = 40;
+	const idPregunta41 = 41;
+	const idPregunta42 = 42;
+	const idPregunta43 = 43;
+	const idPregunta44 = 44;
+	const idPregunta45 = 45;
+	const idPregunta46 = 46;
+	const idPregunta47 = 47;
+	const idPregunta48 = 48;
+
+	const idDimension4 = 4;
+	const idDimension5 = 5;
+	const idDimension6 = 6;
+	const idDimension7 = 7;
+	const idDimension8 = 8;
+	const idDimension9 = 9;
+	const idCuestionario = 4;
 
 	const P1 = req.body.P1;
 	const P2 = req.body.P2;
@@ -72,12 +141,257 @@ controller.save = (req,res) =>{
 
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('INSERT INTO rfl (idPaciente, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16, P17, P18, P19, P20, P21, P22, P23, P24, P25, P26, P27, P28, P29, P30, P31, P32, P33, P34, P35, P36, P37, P38, P39, P40, P41, P42, P43, P44, P45, P46, P47, P48) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);', [id, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15, P16, P17, P18, P19, P20, P21, P22, P23, P24, P25, P26, P27, P28, P29, P30, P31, P32, P33, P34, P35, P36, P37, P38, P39, P40, P41, P42, P43, P44, P45, P46, P47, P48], (err, cuest) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P1, idPregunta1,idDimension5,idCuestionario], (err, cuest) =>{
 			console.log(cuest);
 		});
 	});
 
-	res.redirect('/pacientes.ejs/info_paciente.ejs/'+ id +'/ini_cuest.ejs');
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P2, idPregunta2,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P3, idPregunta3,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P4, idPregunta4,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P5, idPregunta5,idDimension9,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P6, idPregunta6,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P7, idPregunta7,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P8, idPregunta8,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P9, idPregunta9,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P10, idPregunta10,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P11, idPregunta11,idDimension6,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P12, idPregunta12,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P13, idPregunta13,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P14, idPregunta14,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P15, idPregunta15,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P16, idPregunta16,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P17, idPregunta17,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P18, idPregunta18,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P19, idPregunta19,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P20, idPregunta20,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P21, idPregunta21,idDimension6,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P22, idPregunta22,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P23, idPregunta23,idDimension9,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P24, idPregunta24,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P25, idPregunta25,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P26, idPregunta26,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P27, idPregunta27,idDimension9,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P28, idPregunta28,idDimension6,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P29, idPregunta29,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P30, idPregunta30,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P31, idPregunta31,idDimension8,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P32, idPregunta32,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P33, idPregunta33,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P34, idPregunta34,idDimension9,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P35, idPregunta35,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P36, idPregunta36,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P37, idPregunta37,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P38, idPregunta38,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P39, idPregunta39,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P40, idPregunta40,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P41, idPregunta41,idDimension8,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P42, idPregunta42,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P43, idPregunta43,idDimension8,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P44, idPregunta44,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P45, idPregunta45,idDimension4,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P46, idPregunta46,idDimension7,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P47, idPregunta47,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+	req.getConnection((err,conn) =>{
+		conn.query('INSERT INTO respuestaspacientes (idPaciente, Fecha, idRespuesta, idPregunta, idDimension, idCuestionario) VALUES(?,(SELECT CURRENT_DATE()),?,?,?,?);', [idPac, P48, idPregunta48,idDimension5,idCuestionario], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+
+	req.getConnection((err,conn) =>{
+		conn.query('CALL CalificaCuestionario4(?,(SELECT CURRENT_DATE()))', [idPac], (err, cuest) =>{
+			console.log(cuest);
+		});
+	});
+
+	res.redirect('/'+idDoc+'/atender.ejs/ini_cuest.ejs/'+idPac+'/'+idFch);
 };
 
 module.exports = controller;

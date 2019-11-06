@@ -1,16 +1,26 @@
 const controller = {};
-let id = -1;
+let idPac = -1;
+let idDoc = -1;
+let idFch = -1;
 
 controller.list = (req,res) =>{
-	id = req.params.id;
+	idPac = req.params.idPac;
+	idDoc = req.params.idDoc;
+	idFch = req.params.idFch;
+
+	console.log('Ini_cuest');
+	console.log(idPac);
+	console.log(idDoc);
+	console.log(idFch);
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT idPaciente FROM pacientes WHERE idPaciente = ?', [id], (err, idpaciente) =>{
+		conn.query('SELECT idPaciente, idDoctor FROM Pacientes WHERE idPaciente = ? and idDoctor = ?', [idPac,idDoc], (err, cuest) =>{
 			if(err){
 				res.json(err);
 			}
 			res.render('ini_cuest', {
-				data: idpaciente
+				data: cuest,
+				fch: idFch
 			});
 		});
 	});
