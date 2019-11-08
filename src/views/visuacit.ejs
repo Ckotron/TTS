@@ -176,7 +176,7 @@
       <!-- main menu footer-->
     </div>
     <!-- / main menu-->
-    <div class="app-content content container-fluid">
+    <div class="app-content content container-fluid" style="display: inline-block; min-width: 100%;">
       <div class="content-wrapper">
         <div class="content-header row">
         </div>
@@ -211,6 +211,9 @@
                   <td>
                     <button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=data[0].idDoctor%>/atender.ejs/<%=data[i].idPaciente%>/<%=data[i].Fecha%>'">Atender</button>
                   </td>
+                  <td>
+                    <button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=data[0].idDoctor%>/cita_update.ejs/<%=data[i].idPaciente%>/<%=data[i].Fecha%>'">Actualizar cita</button>
+                  </td>
                 </tr>
               <% } %>
             <% } %>
@@ -224,7 +227,7 @@
     </div>
   <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-    <footer class="footer footer-static footer-light navbar-border">
+    <footer class="footer footer-static footer-light navbar-border" style="display: inline-block; min-width: 100%;">
       <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2019 <a href="/inicio.ejs" target="_blank" class="text-bold-800 grey darken-2">VITAE </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block"></span></p>
     </footer>
 
