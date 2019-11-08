@@ -7,6 +7,10 @@ controller.list = (req,res) =>{
 	id = req.params.id;
 	idDoc = req.params.idDoc;
 
+	console.log('List_upd_pac');
+	console.log(id);
+	console.log(idDoc);
+
 	req.getConnection((err,conn) =>{
 		conn.query('SELECT a.idPaciente, a.Nombre, a.ApPaterno, a.ApMaterno, a.FechaNac, a.Genero, a.Alergias, a.TipoSangre, a.EdoCivil, a.NoIncidencias, a.idDoctor FROM pacientes a WHERE a.idPaciente = ?', [id], (err, upd_paciente) =>{
 			if(err){
@@ -17,6 +21,9 @@ controller.list = (req,res) =>{
 				res.json(err);
 			}
 			conn.query('SELECT a.idPaciente, a.Correo FROM correospaciente a WHERE a.idPaciente = ?', [id], (err, upd_corr) =>{	
+			if(err){
+				res.json(err);
+			}
 					res.render('pacientes_update', {
 						data: upd_paciente,
 						tel: upd_tel,
@@ -24,13 +31,15 @@ controller.list = (req,res) =>{
 					});
 				});
 			});
+			
 		});
 	});
 };
 
 controller.update = (req,res) =>{
-	//console.log('Update');
-	//console.log(id);
+	console.log('Update_pac');
+	console.log(id);
+	console.log(idDoc);
 
 	const newNombre = req.body.Nombre;
 	const newApPat = req.body.ApPaterno;	
@@ -48,17 +57,21 @@ controller.update = (req,res) =>{
 
 	req.getConnection((err,conn) =>{
 		conn.query('UPDATE pacientes SET Nombre = ?, ApPaterno = ?, ApMaterno = ?, FechaNac = ?, Genero = ?, Alergias = ?, TipoSangre = ?, EdoCivil = ?, NoIncidencias = ? WHERE idPaciente = ?', [newNombre, newApPat, newApMat, newFechN, newGen, newAler, newTipS, newEdoC, newNoInc, id], (err, pacientes) =>{
-			res.redirect('/'+idDoc+'/pacientes.ejs/info_paciente.ejs/'+ id);
-		});
-	});
-	req.getConnection((err,conn) =>{
-		conn.query('UPDATE telefonospaciente SET Telefono = ? WHERE idPaciente = ?', [newTel, id], (err, pacientes) =>{
-			res.redirect('/'+idDoc+'/pacientes.ejs/info_paciente.ejs/'+ id);
-		});
-	});
-	req.getConnection((err,conn) =>{
-		conn.query('UPDATE correospaciente SET Correo = ? WHERE idPaciente = ?', [newCorr, id], (err, pacientes) =>{
-			res.redirect('/'+idDoc+'/pacientes.ejs/info_paciente.ejs/'+ id);
+			if(err){
+				res.json(err);
+			}
+			conn.query('UPDATE telefonospaciente SET Telefono = ? WHERE idPaciente = ?', [newTel, id], (err, pacientes) =>{
+				if(err){
+					res.json(err);
+				}
+				conn.query('UPDATE correospaciente SET Correo = ? WHERE idPaciente = ?', [newCorr, id], (err, pacientes) =>{
+					if(err){
+						res.json(err);
+					}
+					res.redirect('/'+idDoc+'/pacientes.ejs/info_paciente.ejs/'+id);
+				});
+			});
+
 		});
 	});
 };

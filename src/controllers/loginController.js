@@ -3,7 +3,7 @@ const controller = {};
 
 controller.rendering = (req,res) =>{
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT * FROM doctores', (err, doctores) =>{
+		conn.query('SELECT "NULL" AS "idDoctor"', (err, doctores) =>{
 			if(err){
 				res.json(err);
 			}

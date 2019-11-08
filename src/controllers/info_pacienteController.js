@@ -7,7 +7,7 @@ controller.list = (req,res) =>{
 	idDoc = req.params.idDoc;
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT * FROM pacientes WHERE idPaciente = ?', [id], (err, paciente) =>{
+		conn.query('SELECT * FROM pacientes WHERE idPaciente = ? AND idDoctor = ?', [id,idDoc], (err, paciente) =>{
 			if(err){
 				res.json(err);
 			}
@@ -21,7 +21,7 @@ controller.list = (req,res) =>{
 
 controller.delete = (req,res) =>{
 	req.getConnection((err,conn) =>{
-		conn.query('DELETE FROM pacientes WHERE idPaciente = ?', [id], (err, paciente) =>{
+		conn.query('DELETE FROM pacientes WHERE idPaciente = ? AND idDoctor = ?', [id,idDoc], (err, paciente) =>{
 			if(err){
 				res.json(err);
 			}

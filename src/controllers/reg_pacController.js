@@ -33,7 +33,7 @@ controller.save = (req,res) =>{
 
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('INSERT INTO pacientes (Nombre,ApPaterno,ApMaterno, FechaNac, Genero, Alergias, TipoSangre, EdoCivil, NoIncidencias, idDoctor) VALUES(?,?,?,?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, aler, tipS, edoC, noInc, idDoc], (err, pacientes) =>{
+		conn.query('CALL IngresaPaciente(?,?,?,?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, aler, tipS, edoC, noInc, idDoc], (err, pacientes) =>{
 			console.log(pacientes);
 		});
 	});
