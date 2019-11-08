@@ -8,12 +8,21 @@ controller.list = (req,res) =>{
 	idDoc = req.params.idDoc;
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT a.idPaciente, a.Nombre, a.ApPaterno, a.ApMaterno, a.FechaNac, a.Genero, a.Alergias, a.TipoSangre, a.EdoCivil, a.NoIncidencias, a.idDoctor, b.Telefono, c.Correo FROM pacientes a, telefonospaciente b, correospaciente c WHERE b.idPaciente = a.idPaciente AND a.idPaciente = b.idPaciente AND a.idPaciente = ?', [id], (err, upd_paciente) =>{
+		conn.query('SELECT a.idPaciente, a.Nombre, a.ApPaterno, a.ApMaterno, a.FechaNac, a.Genero, a.Alergias, a.TipoSangre, a.EdoCivil, a.NoIncidencias, a.idDoctor FROM pacientes a WHERE a.idPaciente = ?', [id], (err, upd_paciente) =>{
 			if(err){
 				res.json(err);
 			}
-			res.render('pacientes_update', {
-				data: upd_paciente
+			conn.query('SELECT a.idPaciente, a.Telefono FROM telefonospaciente a WHERE a.idPaciente = ?', [id], (err, upd_tel) =>{
+			if(err){
+				res.json(err);
+			}
+			conn.query('SELECT a.idPaciente, a.Correo FROM correospaciente a WHERE a.idPaciente = ?', [id], (err, upd_corr) =>{	
+					res.render('pacientes_update', {
+						data: upd_paciente,
+						tel: upd_tel,
+						corr: upd_corr
+					});
+				});
 			});
 		});
 	});

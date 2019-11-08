@@ -124,8 +124,6 @@
       <div class="navbar-wrapper">
         <div class="navbar-header">
           <ul class="nav navbar-nav">
-            <li class="nav-item mobile-menu hidden-md-up float-xs-left"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5 font-large-1"></i></a></li>
-            <li class="nav-item"><a href="/inicio.ejs" class="navbar-brand nav-link"><img alt="branding logo" src="../../../../app-assets/images/logo/robust-logo-light.png" data-expand="../../../../app-assets/images/logo/robust-logo-light.png" data-collapse="../../../../app-assets/images/logo/robust-logo-small.png" class="brand-logo"></a></li>
             <li class="nav-item hidden-md-up float-xs-right"><a data-toggle="collapse" data-target="#navbar-mobile" class="nav-link open-navbar-container"><i class="icon-ellipsis pe-2x icon-icon-rotate-right-right"></i></a></li>
           </ul>
         </div>
@@ -133,7 +131,7 @@
             <div id="navbar-mobile" class="collapse navbar-toggleable-sm">
             <ul class="nav navbar-nav">
               <li class="nav-item hidden-sm-down"><a class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="icon-menu5"></i></a></li>
-              <li class="nav-item hidden-sm-down"><a href="#" class="nav-link nav-link-expand"><i class="ficon icon-expand2"></i></a></li>
+              <li class="nav-item hidden-sm-down"><a href="/<%=data[0].idDoctor%>/index.ejs" class="nav-link nav-link-expand"><i class="ficon icon-expand2"></i></a></li>
             </ul>
             <ul class="nav navbar-nav float-xs-right">
               <li class="nav-item hidden-sm-down"><a id="estilo_btn" href="/login.ejs" class="btn btn-success upgrade-to-pro">Cerrar sesión</a></li>
@@ -249,34 +247,33 @@
                       </div>  
                     </td>
                   </tr>
-                  <% var flg_valido_tel = 0; %>
-                  <% if (data) { %>
-                    <% for (var i = 0; i < data.length; i++) {%>
-                     <% for (var h = 0; h < i; h++){%>
-                        <%if(data[i].Telefono == data[h].Telefono){%>
-                          <%flg_valido_tel = 1;}}%>
-                           <% if(flg_valido_tel != 1 || i == 0) {%>
+
+                  <% if (tel) { %>
+                    <% for (var i = 0; i < tel.length; i++) {%>                     
                   <tr>
                     <td><label for="telant<%=i%>">Teléfono <%=i+1%></label></td>
                     <td><label for="telnv<%=i%>">Teléfono <%=i+1%></label></td>
                   </tr>
                   <tr>
-                    <td><input type="text" id ="telant<%=i%>" name="TelefonoV" class="form-control" value = "<%= data[i].Telefono %>" disabled></td>
-                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" value = "<%= data[i].Telefono %>"></td>
+                    <td><input type="text" id ="telant<%=i%>" name="TelefonoV" class="form-control" value = "<%= tel[i].Telefono %>" disabled></td>
+                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" value = "<%= tel[i].Telefono %>"></td>
                   </tr>
                     <% } %>
                     <% } %>
-                  <% } %>
 
-                 
+                  <% if (corr) { %>
+                    <% for (var c = 0; c < corr.length; c++) {%>
+        
                   <tr>
-                    <td><label for="CorreoAnt">Correo </label></td>
-                    <td><label for="CorreoNv">Correo </label></td>
+                    <td><label for="CorreoAnt<%=c%>">Correo <%=c+1%></label></td>
+                    <td><label for="CorreoNv<%=c%>">Correo <%=c+1%></label></td>
                   </tr>
                   <tr>
-                    <td><input type="text" id ="corrant" name="CorreoV" class="form-control" value = "damian@gmail.com" disabled></td>
-                    <td><input type="text" id ="corrnv" name="Correo" class="form-control" value = "damian@gmail.com"></td>
+                    <td><input type="text" id ="corrant<%=c%>" name="CorreoV" class="form-control" value = "<%=corr[c].Correo%>" disabled></td>
+                    <td><input type="text" id ="corrnv<%=c%>" name="Correo" class="form-control" value = "<%= corr[c].Correo%>"></td>
                   </tr>
+                  <% } %>
+                  <% } %>
 
                   <tr>
                     <td><label for="alerg">Alergias</label></td>
