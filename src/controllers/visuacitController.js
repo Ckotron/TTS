@@ -31,7 +31,12 @@ controller.delete = (req,res) =>{
 			if(err){
 				res.json(err);
 			}
-			res.redirect('/'+idDoc+'/visuacit.ejs');
+			conn.query('UPDATE Aplicacion SET HoraFinal=(SELECT CURTIME()) WHERE Fecha = ? AND idPaciente = ?', [fch,idPac], (err, paci) =>{
+				if(err){
+					res.json(err);
+				}
+				res.redirect('/'+idDoc+'/visuacit.ejs');
+			});
 		});
 	});
 };
