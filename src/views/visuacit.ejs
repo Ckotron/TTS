@@ -206,7 +206,7 @@
                   <td><%= data[i].Fecha %></td>
                   <td><%= data[i].HoraInicio %></td>
                   <td>
-                    <button type="submit" id="estilo_btn" class="btn btn-success" style="background-color: red;" onclick="window.location.href='/<%=data[0].idDoctor%>/visuacit.ejs/<%=data[i].Fecha%>/deleteVisuacita'">Eliminar cita</button>
+                    <button type="submit" id="estilo_btn" class="btn btn-success" style="background-color: red;" onclick="window.location.href='/<%=data[0].idDoctor%>/visuacit.ejs/<%=data[i].Fecha%>/<%=data[i].idPaciente%>/deleteVisuacita'">Finalizar cita</button>
                   </td>
                   <td>
                     <button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=data[0].idDoctor%>/atender.ejs/<%=data[i].idPaciente%>/<%=data[i].Fecha%>'">Atender</button>

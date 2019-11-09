@@ -25,7 +25,7 @@ controller.save = (req,res) =>{
 
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('INSERT INTO Aplicacion (Fecha, HoraInicio, idPaciente) VALUES(?,?,?);', [fch, horaini, idPac], (err, citas) =>{
+		conn.query('INSERT INTO Aplicacion (Fecha, HoraInicio, idPaciente, Estado) VALUES(?,?,?, "Pendiente");', [fch, horaini, idPac], (err, citas) =>{
 			console.log(citas);
 		});
 	});

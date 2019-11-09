@@ -1,6 +1,7 @@
 const controller = {};
 let idDoc = -1;
 let fch = -1;
+let idPac = -1;
 
 controller.list = (req,res) =>{
 	idDoc = req.params.idDoc;
@@ -8,7 +9,7 @@ controller.list = (req,res) =>{
 	console.log(idDoc);
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT D.idDoctor, P.Nombre, P.ApPaterno, P.ApMaterno, A.Fecha, A.HoraInicio, A.idPaciente FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor AND P.idPaciente IN ( SELECT P.idPaciente FROM Pacientes P INNER JOIN Aplicacion A ON P.idPaciente = A.idPaciente) LEFT JOIN Aplicacion A ON P.idPaciente = A.idPaciente WHERE D.idDoctor = ?', [idDoc], (err, cita) =>{
+		conn.query('SELECT D.idDoctor, P.Nombre, P.ApPaterno, P.ApMaterno, A.Fecha, A.HoraInicio, A.idPaciente FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor AND P.idPaciente IN ( SELECT P.idPaciente FROM Pacientes P INNER JOIN Aplicacion A ON P.idPaciente = A.idPaciente) LEFT JOIN Aplicacion A ON P.idPaciente = A.idPaciente WHERE D.idDoctor = ? AND A.Estado="Pendiente"', [idDoc], (err, cita) =>{
 			if(err){
 				res.json(err);
 			}
@@ -23,9 +24,10 @@ controller.list = (req,res) =>{
 controller.delete = (req,res) =>{
 	fch = req.params.fch;
 	idDoc = req.params.idDoc;
+	idPac = req.params.idPac;
 
 	req.getConnection((err,conn) =>{
-		conn.query('DELETE FROM Aplicacion WHERE Fecha = ?', [fch], (err, paciente) =>{
+		conn.query('UPDATE Aplicacion SET Estado="Finalizada" WHERE Fecha = ? AND idPaciente = ?', [fch,idPac], (err, paciente) =>{
 			if(err){
 				res.json(err);
 			}
