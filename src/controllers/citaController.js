@@ -9,7 +9,7 @@ controller.list = (req,res) =>{
 	console.log(id);
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT A.Fecha, A.HoraInicio, A.idPaciente FROM Aplicacion A WHERE idPaciente = ?', [id], (err, cita) =>{
+		conn.query('SELECT A.Fecha, A.HoraInicio, A.idPaciente, A.Estado FROM Aplicacion A WHERE idPaciente = ?', [id], (err, cita) =>{
 			if(err){
 				res.json(err);
 			}

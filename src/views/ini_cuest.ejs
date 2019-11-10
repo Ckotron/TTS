@@ -152,7 +152,7 @@
           <li><a href="/<%= data[0].idDoctor%>/index.ejs"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Inicio</span></a>
             
           </li>
-          <li class="nav-item"><a href="/<%= data[0].idDoctor%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
+          <li class="nav-item"><a href="/<%= data[0].idDoctor%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
             <ul class="menu-content">
               <li class="active"><a href="/<%= data[0].idDoctor%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Consultar pacientes</a>
               </li>
@@ -180,7 +180,6 @@
                   <thead>
                     <tr>
                       <th>Cuestionario</th>
-                      <th>Descripción</th>
                       <th>Estado</th>
                       <th>-</th>   
                     </tr>
@@ -188,26 +187,44 @@
                   <tbody>
                       <tr>
                         <td>Cuestionario SSM-ERS</td>
-                        <td>Falta descripción</td>
-                        <td><p class="text-success">Aplicado</p><p class="text-danger">Sin aplicar</p></td>
+                        <%if(cuest1resuelto.idRespuesta != "No aplicado"){%>
+                          <td><p class="text-success">Aplicado</p></td>
+                        <%}else{%>
+                          <td><p class="text-danger">Sin aplicar</p></td>
+                        <%}%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/ssm_ers.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario SSM-ERS</button></center></td>
                       </tr>
                       <tr>
                         <td>Cuestionario PHQ-2</td>
-                        <td>Falta descripción</td>
-                        <td><p class="text-success">Aplicado</p><p class="text-danger">Sin aplicar</p></td>
+                        <%if(cuest2resuelto.idRespuesta != "No aplicado"){%>
+                          <td><p class="text-success">Aplicado</p></td>
+                        <%}else{%>
+                          <td><p class="text-danger">Sin aplicar</p></td>
+                        <%}%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_2.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario PHQ-2</button></center></td>
                       </tr>
                       <tr>
                         <td>Cuestionario PHQ-9</td>
-                        <td>Falta descripción</td>
-                        <td><p class="text-success">Aplicado</p><p class="text-danger">Sin aplicar</p></td>
+                        <%if(cuest3resuelto.idRespuesta != "No aplicado" && cuest2resuelto.idRespuesta != "No aplicado"){%>
+                          <td><p class="text-success">Aplicado</p></td>
+                        <%}else if(aplicar[0].InterpretacionV == "No aplicado"){%>
+                          <td><p class="text-danger">Sin aplicar</p></td>
+                        <%}else if(aplicar[0].InterpretacionV == "No Aplica PHQ-9"){%>
+                          <td><p class="text-danger">No aplicarlo</p></td>
+                        <%}%>
+                        <%if(aplicar[0].InterpretacionV == "No Aplica PHQ-9" || cuest2resuelto.idRespuesta == "No aplicado"){%>
+                        <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_9.ejs/<%= data[0].idPaciente%>/<%=fch%>'" disabled>Cuestionario PHQ-9</button></center></td>
+                        <%}else{%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_9.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario PHQ-9</button></center></td>
+                        <%}%>
                       </tr>
                       <tr>
                         <td>Cuestionario RFL</td>
-                        <td>Falta descripción</td>
-                        <td><p class="text-success">Aplicado</p><p class="text-danger">Sin aplicar</p></td>
+                        <%if(cuest4resuelto.idRespuesta != "No aplicado"){%>
+                          <td><p class="text-success">Aplicado</p></td>
+                        <%}else{%>
+                          <td><p class="text-danger">Sin aplicar</p></td>
+                        <%}%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/rfl.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario RFL</button></center></td>
                       </tr>
                   </tbody>

@@ -26,7 +26,7 @@ controller.list = (req,res) =>{
 				conn.query('SELECT idRegresion, Regresion, DescRegresion FROM Resultadoregresion',(err, regre) =>{
 					if (err) throw err;
 					console.log(regre);
-					conn.query('SELECT r.ValorR, r.InterpretacionV, r.ObservacionesCuestionario FROM Resultado r, Aplicacion a WHERE a.idPaciente=r.idPaciente AND a.idPaciente=? AND a.Fecha=? AND r.ObservacionesCuestionario LIKE "Cuestionario PHQ-9%" UNION SELECT r.ValorR, r.InterpretacionV, r.ObservacionesCuestionario FROM Resultado r, Aplicacion a WHERE a.idPaciente=r.idPaciente AND a.idPaciente=? AND a.Fecha=? AND r.ObservacionesCuestionario LIKE "Cuestionario RFL%Dimension 8"',[idPac,idFch,idPac,idFch],(err, cuest) =>{
+					conn.query('SELECT r.ValorR, r.InterpretacionV, r.ObservacionesCuestionario FROM Resultado r, Aplicacion a WHERE a.idPaciente=r.idPaciente AND a.idPaciente=? AND a.Fecha=? AND r.ObservacionesCuestionario LIKE "Cuestionario PHQ-9%" UNION SELECT r.ValorR, r.InterpretacionV, r.ObservacionesCuestionario FROM Resultado r, Aplicacion a WHERE a.idPaciente=r.idPaciente AND a.idPaciente=? AND a.Fecha=? AND r.ObservacionesCuestionario LIKE "Cuestionario RFL%Dimension 8%"',[idPac,idFch,idPac,idFch],(err, cuest) =>{
 						if (err) throw err;
 						console.log(cuest);
 							res.render('listResultado', {
