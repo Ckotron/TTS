@@ -154,25 +154,23 @@
 						<tr>
 							<td><%= regresion[0].DescRegresion%></td>
 							<%if(respcuest1.ValorR != "No aplicado" && respcuest1.length > 0){%>
-							<%if((respcuest1[0].ValorR >= 1 && respcuest1[0].ValorR <= 27) && i == 0){%>
-							<td>20%</td>
-							<%}else if((respcuest1[0].ValorR >= 5 && respcuest1[0].ValorR <= 9)){%>
-							<%var res=((respcuest1[0].ValorR)*100)/27%>						
-							<td><%=res.toString().substr(0,5).concat("%")%></td>
-							<%}%>
-							<%}else{%>
-							<td>No aplicado</td>
+								<%if((respcuest1[0].ValorR >= 1 && respcuest1[0].ValorR <= 27)){%>
+									<% var res=((respcuest1[0].ValorR)*100)/27%>
+									<td><%=res.toString().substr(0,5).concat("%")%></td>
+								<%} else {%>
+									<td>No aplicado</td>
+								<%}%>
 							<%}%>
 						</tr>
 						<tr>
 							<td><%= regresion[1].DescRegresion%></td>
 							<%if(respcuest2.ValorR != "No aplicado" && respcuest2.length > 0){%>
-							<%if((respcuest2[0].ValorR >= 3 && respcuest2[0].ValorR <= 10)){%>
-							<% var resp=((respcuest2[0].ValorR)*100)/10%>
-							<td><%=resp.toString().substr(0,5).concat("%")%></td>
-							<%}%>
-							<%} else {%>
-								<td>No aplicado</td>
+								<%if((respcuest2[0].ValorR >= 3 && respcuest2[0].ValorR <= 10)){%>
+									<% var resp=((respcuest2[0].ValorR)*100)/10%>
+									<td><%=resp.toString().substr(0,5).concat("%")%></td>
+								<%} else {%>
+									<td>No aplicado</td>
+								<%}%>
 							<%}%>
 						</tr>
 				</table>
