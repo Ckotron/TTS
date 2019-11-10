@@ -55,7 +55,7 @@ controller.list = (req,res) =>{
 								cuest4.idRespuesta = 'No aplicado';
 							}
 							console.log(cuest4);
-							conn.query('SELECT DISTINCT r.InterpretacionV FROM resultado r WHERE r.idPaciente = ? AND r.Fecha = ? AND ObservacionesCuestionario LIKE "Cuestionario PHQ-2 Resuelto";', [idPac,idFch], (err, flgphq9) =>{
+							conn.query('SELECT DISTINCT r.InterpretacionV FROM resultado r WHERE r.idPaciente = ? AND r.Fecha = ? AND ObservacionesCuestionario LIKE "Cuestionario PHQ-2 Resuelto" UNION SELECT "No aplicado" AS "InterpretacionV";', [idPac,idFch], (err, flgphq9) =>{
 								if(err){
 									res.json(err);
 								}
