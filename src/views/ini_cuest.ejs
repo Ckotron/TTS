@@ -192,7 +192,11 @@
                         <%}else{%>
                           <td><p class="text-danger">Sin aplicar</p></td>
                         <%}%>
+                        <%if(cuest1resuelto.idRespuesta != "No aplicado"){%>
+                        <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/ssm_ers.ejs/<%= data[0].idPaciente%>/<%=fch%>'" disabled>Cuestionario SSM-ERS</button></center></td>
+                        <%}else{%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/ssm_ers.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario SSM-ERS</button></center></td>
+                        <%}%>
                       </tr>
                       <tr>
                         <td>Cuestionario PHQ-2</td>
@@ -201,7 +205,11 @@
                         <%}else{%>
                           <td><p class="text-danger">Sin aplicar</p></td>
                         <%}%>
+                        <%if(cuest2resuelto.idRespuesta != "No aplicado"){%>
+                        <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_2.ejs/<%= data[0].idPaciente%>/<%=fch%>'" disabled>Cuestionario PHQ-2</button></center></td>
+                        <%}else{%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_2.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario PHQ-2</button></center></td>
+                        <%}%>
                       </tr>
                       <tr>
                         <td>Cuestionario PHQ-9</td>
@@ -211,8 +219,10 @@
                           <td><p class="text-danger">Sin aplicar</p></td>
                         <%}else if(aplicar[0].InterpretacionV == "No Aplica PHQ-9"){%>
                           <td><p class="text-danger">No aplicarlo</p></td>
+                        <%}else if(aplicar[0].InterpretacionV == "Aplica PHQ-9"){%>
+                          <td><p class="text-danger">Aplicar</p></td>
                         <%}%>
-                        <%if(aplicar[0].InterpretacionV == "No Aplica PHQ-9" || cuest2resuelto.idRespuesta == "No aplicado"){%>
+                        <%if(aplicar[0].InterpretacionV == "No Aplica PHQ-9" || cuest2resuelto.idRespuesta == "No aplicado" || cuest3resuelto.idRespuesta != "No aplicado"){%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_9.ejs/<%= data[0].idPaciente%>/<%=fch%>'" disabled>Cuestionario PHQ-9</button></center></td>
                         <%}else{%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/phq_9.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario PHQ-9</button></center></td>
@@ -225,7 +235,11 @@
                         <%}else{%>
                           <td><p class="text-danger">Sin aplicar</p></td>
                         <%}%>
+                        <%if(cuest4resuelto.idRespuesta != "No aplicado"){%>
+                        <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/rfl.ejs/<%= data[0].idPaciente%>/<%=fch%>'" disabled>Cuestionario RFL</button></center></td>
+                        <%}else{%>
                         <td><center><button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= data[0].idDoctor%>/atender.ejs/ini_cuest.ejs/rfl.ejs/<%= data[0].idPaciente%>/<%=fch%>'">Cuestionario RFL</button></center></td>
+                        <%}%>
                       </tr>
                   </tbody>
                 </table>

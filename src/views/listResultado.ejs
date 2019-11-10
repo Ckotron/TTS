@@ -93,32 +93,41 @@
 							<th>Porcentaje obtenido en los cuestionarios</th>
 						</tr>
 					</thead>
-			<% if (regresion) { %>
-                <% for (var i = 0; i < regresion.length; i++) {%>
 						<tr>
-							<td><%= regresion[i].DescRegresion%></td>
-							<%if((respcuest[i].ValorR >= 1 && respcuest[i].ValorR <= 4) && i == 0){%>
+							<td><%= regresion[0].DescRegresion%></td>
+							<%if(respcuest1.ValorR != "No aplicado" && respcuest1.length > 0){%>
+							<%if((respcuest1[0].ValorR >= 1 && respcuest1[0].ValorR <= 4) && i == 0){%>
 							<td>20%</td>
-							<%}else if((respcuest[i].ValorR >= 5 && respcuest[i].ValorR <= 9) && i == 0){%>
+							<%}else if((respcuest1[0].ValorR >= 5 && respcuest1[0].ValorR <= 9)){%>
 							<td>40%</td>
-							<%}else if((respcuest[i].ValorR >= 10 && respcuest[i].ValorR <= 14) && i == 0){%>
+							<%}else if((respcuest1[0].ValorR >= 10 && respcuest1[0].ValorR <= 14)){%>
 							<td>60%</td>
-							<%}else if((respcuest[i].ValorR >= 15 && respcuest[i].ValorR <= 19) && i == 0){%>
+							<%}else if((respcuest1[0].ValorR >= 15 && respcuest1[0].ValorR <= 19)){%>
 							<td>80%</td>
-							<%}else if((respcuest[i].ValorR >= 20 && respcuest[i].ValorR <= 27) && i == 0){%>
+							<%}else if((respcuest1[0].ValorR >= 20 && respcuest1[0].ValorR <= 27)){%>
 							<td>100%</td>
-							<%}else if((respcuest[i].ValorR >= 3 && respcuest[i].ValorR <= 6) && i == 1){%>
+							<%}%>
+							<%}else{%>
+							<td>No aplicado</td>
+							<%}%>
+
+						</tr>
+						<tr>
+							<td><%= regresion[1].DescRegresion%></td>
+							<%if(respcuest2.ValorR != "No aplicado" && respcuest2.length > 0){%>
+							<%if((respcuest2[0].ValorR >= 3 && respcuest2[0].ValorR <= 6)){%>
 							<td>100%</td>
-							<%}else if((respcuest[i].ValorR >= 7 && respcuest[i].ValorR <= 10) && i == 1){%>
+							<%}else if((respcuest2[0].ValorR >= 7 && respcuest2[0].ValorR <= 10)){%>
 							<td>75%</td>
-							<%}else if((respcuest[i].ValorR >= 11 && respcuest[i].ValorR <= 14) && i == 1){%>
+							<%}else if((respcuest2[0].ValorR >= 11 && respcuest2[0].ValorR <= 14)){%>
 							<td>50%</td>
-							<%}else if((respcuest[i].ValorR >= 15 && respcuest[i].ValorR <= 18) && i == 1){%>
+							<%}else if((respcuest2[0].ValorR >= 15 && respcuest2[0].ValorR <= 18)){%>
 							<td>25%</td>
 							<%}%>
+							<%} else {%>
+								<td>No aplicado</td>
+							<%}%>
 						</tr>
-				<% } %>
-            <% } %>
 				</table>
 
 			</div>
