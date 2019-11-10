@@ -152,9 +152,11 @@
           <li><a href="/<%=data[0].idDoctor%>/index.ejs"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Inicio</span></a>
             
           </li>
-          <li class="nav-item"><a href="/<%=data%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
+          <li class="nav-item"><a href="/<%=data[0].idDoctor%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
             <ul class="menu-content">
-              <li class="active"><a href="/<%=data[0].idDoctor%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Consultar pacientes</a>
+              <li class="active"><a href="/<%=data[0].idDoctor%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes activos</a>
+              </li>
+              <li><a href="/<%=data[0].idDoctor%>/pacientes_arch.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes archivados</a>
               </li>
               <li><a href="/<%=data[0].idDoctor%>/reg_pac.ejs" data-i18n="nav.dash.main" class="menu-item">Registrar pacientes</a>
               </li>

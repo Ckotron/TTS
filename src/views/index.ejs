@@ -62,14 +62,12 @@
         /*determinamos una anchura*/
         width:900px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-
         /*determinamos una altura*/
         height:500px;
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
         margin-top:130px;
-
         background-color: #ebd2f6;
         border:1px solid #c6c6c6;
       }
@@ -77,33 +75,26 @@
         flex-shrink: none;
       }
       #tabla{
-
         /*nos posicionamos en el centro del navegador*/
-
         /*determinamos una anchura*/
         width:750px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-
         /*determinamos una altura*/
         height:330px;
         border-radius: 25px;
         overflow: auto;
         /*indicamos que el margen superior, es la mitad de la altura*/
-
         background-color: white;
         border:1px solid #c6c6c6;
       }
       #botones{
         /*nos posicionamos en el centro del navegador*/
-
         /*determinamos una anchura*/
         width:500px;
         /*indicamos que el margen izquierdo, es la mitad de la anchura*/
-
         /*determinamos una altura*/
         height:42px;
         border-radius: 25px;
-
         /*indicamos que el margen superior, es la mitad de la altura*/
         margin-bottom: 20px;
       }
@@ -150,7 +141,9 @@
           </li>
           <li class="nav-item"><a><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
             <ul class="menu-content">
-              <li><a href="/<%=data%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Consultar pacientes</a>
+              <li><a href="/<%=data%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes activos</a>
+              </li>
+              <li><a href="/<%=data%>/pacientes_arch.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes archivados</a>
               </li>
               <li><a href="/<%=data%>/reg_pac.ejs" data-i18n="nav.dash.main" class="menu-item">Registrar pacientes</a>
               </li>

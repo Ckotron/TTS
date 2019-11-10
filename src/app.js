@@ -16,8 +16,8 @@ app.use(morgan('dev'));
 app.use(myConnection(mysql, {
 	host: 'localhost',
    	user: 'root',
-   	password: 'Alohomora21v',
-   	database: 'TTSuicidev2Chida',
+   	password: 'root',
+   	database: 'TTSuicide',
    	dateStrings:true,
    	port: 3306
 }, 'single'));
@@ -47,6 +47,7 @@ const atenderRoutes = require('./routes/atender.js');
 const generreporRoutes = require('./routes/generar_reporte.js');
 const diagRoutes = require('./routes/diagnosticar.js');
 const listResRoutes = require('./routes/listResultado.js');
+const pacientesArchRoutes = require('./routes/pacientes_arch.js');
 
 //routes
 app.use('/',inicioRoutes);
@@ -71,6 +72,7 @@ app.use('/',atenderRoutes);
 app.use('/',generreporRoutes);
 app.use('/',diagRoutes);
 app.use('/',listResRoutes);
+app.use('/',pacientesArchRoutes);
 
 //static files
 app.use(express.static(path.join(__dirname,'public')));
