@@ -21,7 +21,7 @@ controller.list = (req,res) =>{
 
 controller.delete = (req,res) =>{
 	req.getConnection((err,conn) =>{
-		conn.query('DELETE FROM pacientes WHERE idPaciente = ? AND idDoctor = ?', [id,idDoc], (err, paciente) =>{
+		conn.query('UPDATE Pacientes SET Estado = "Archivado" WHERE idPaciente = ? AND idDoctor = ?', [id,idDoc], (err, paciente) =>{
 			if(err){
 				res.json(err);
 			}

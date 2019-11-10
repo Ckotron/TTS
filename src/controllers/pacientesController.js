@@ -5,7 +5,7 @@ controller.list = (req,res) =>{
 	idDocPac = req.params.idDoc;
 	console.log(idDocPac+"list");
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT D.idDoctor, P.idPaciente, P.Nombre, P.ApPaterno, P.ApMaterno FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor WHERE D.idDoctor = ?',[idDocPac], (err, pacientes) =>{
+		conn.query('SELECT D.idDoctor, P.idPaciente, P.Nombre, P.ApPaterno, P.ApMaterno FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor WHERE D.idDoctor = ? AND Estado="Activo"',[idDocPac], (err, pacientes) =>{
 			if(err){
 				res.json(err);
 			}

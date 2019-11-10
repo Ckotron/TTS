@@ -2,7 +2,7 @@
   "name": "TTS",
   "version": "1.0.0",
   "description": "",
-  "main": "inicio.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app.js"
   },
