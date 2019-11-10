@@ -149,26 +149,26 @@
       <!-- main menu content-->
       <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-          <li><a href="/<%=data[0].idDoctor%>/index.ejs"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Inicio</span></a>
+          <li><a href="/<%=doc%>/index.ejs"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Inicio</span></a>
             
           </li>
-          <li class="nav-item"><a href="/<%=data[0].idDoctor%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
+          <li class="nav-item"><a href="/<%=doc%>/index.ejs"><i class="icon-eye6"></i><span data-i18n="nav.dash.main" class="menu-title">Pacientes</span></a>
             <ul class="menu-content">
-              <li class="active"><a href="/<%=data[0].idDoctor%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes activos</a>
+              <li class="active"><a href="/<%=doc%>/pacientes.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes activos</a>
               </li>
-              <li><a href="/<%=data[0].idDoctor%>/pacientes_arch.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes archivados</a>
+              <li><a href="/<%=doc%>/pacientes_arch.ejs" data-i18n="nav.dash.main" class="menu-item">Pacientes archivados</a>
               </li>
-              <li><a href="/<%=data[0].idDoctor%>/reg_pac.ejs" data-i18n="nav.dash.main" class="menu-item">Registrar pacientes</a>
+              <li><a href="/<%=doc%>/reg_pac.ejs" data-i18n="nav.dash.main" class="menu-item">Registrar pacientes</a>
               </li>
             </ul>
           </li>
           <li class="nav-item"><a><i class="icon-watch"></i><span data-i18n="nav.dash.main" class="menu-title">Citas</span></a>
             <ul class="menu-content">
-              <li><a href="/<%=data[0].idDoctor%>/visuacit.ejs" data-i18n="nav.dash.main" class="menu-item">Visualizar citas pendientes</a>
+              <li><a href="/<%=doc%>/visuacit.ejs" data-i18n="nav.dash.main" class="menu-item">Visualizar citas pendientes</a>
               </li>
             </ul>
           </li>
-          <li class="nav-item"><a href="/<%=data[0].idDoctor%>/histclinico.ejs"><i class="icon-paper"></i><span data-i18n="nav.dash.main" class="menu-title">Historial clínico</span></a>
+          <li class="nav-item"><a href="/<%=doc%>/histclinico.ejs"><i class="icon-paper"></i><span data-i18n="nav.dash.main" class="menu-title">Historial clínico</span></a>
           </li>
         </ul>
       </div>
@@ -198,7 +198,7 @@
                   </thead>
                   <tbody>
                     <% if (data) { %>
-                     <% for (var i = 0; (i < data.length) && (data[i].idPaciente != null); i++) {%>
+                     <% for (var i = 0; (i < data.length) && (data[i].idPaciente != ""); i++) {%>
                        <tr>
                          <td><%= data[i].idPaciente %></td>
                          <td><%= data[i].Nombre %></td>
