@@ -9,18 +9,14 @@ controller.list = (req,res) =>{
 	console.log(id);
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT A.Fecha, A.HoraInicio, A.idPaciente, A.Estado FROM Aplicacion A WHERE idPaciente = ?', [id], (err, cita) =>{
+		conn.query('SELECT A.Fecha, A.HoraInicio, A.idPaciente, A.Estado FROM Aplicacion A WHERE idPaciente = ? UNION SELECT "" AS "Fecha", "" AS "HoraInicio", "" AS "idPaciente", "" AS "Estado"', [id], (err, cita) =>{
 			if(err){
 				res.json(err);
 			}
-			if(cita.length>0){
 				res.render('cita', {
 					data: cita,
 					doc: idDoc				
 				});	
-			}else{
-				res.send('No hay citas registradas');
-			}
 			
 		});
 	});

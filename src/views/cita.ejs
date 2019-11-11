@@ -189,7 +189,7 @@
           </thead>
           <tbody>
             <% if (data) { %>
-              <% for (var i = 0; i < data.length; i++) {%>
+              <% for (var i = 0; i < data.length && data[i].idPaciente != ""; i++) {%>
                 <tr>
                   <td><%= data[i].Fecha %></td>
                   <td><%= data[i].HoraInicio %></td>
