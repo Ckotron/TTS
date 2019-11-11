@@ -14,7 +14,8 @@ controller.list = (req,res) =>{
 				res.json(err);
 			}
 			res.render('visuacit', {
-				data: cita				
+				data: cita,
+				doc: idDoc				
 			});	
 		});
 	});
