@@ -1,5 +1,7 @@
 const controller = {};
 
+const Cryptr = require ('cryptr');
+const cryptr = new Cryptr('KTT##2018-B075');
 
 controller.rendering = (req,res) =>{
 	req.getConnection((err,conn) =>{
@@ -20,10 +22,15 @@ controller.list = (req,res) =>{
 	const contra = req.body.Contrasena;
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT idDoctor, NombUsuario, Contraseña FROM doctores WHERE NombUsuario = ? AND Contraseña = ?', [nombU,contra], (err, doctores) =>{
+		conn.query('SELECT idDoctor, NombUsuario, Contraseña FROM doctores WHERE NombUsuario = ?', [nombU], (err, doctores) =>{
 			if(err){
 				res.json(err);
-			}else if (doctores.length == 0){
+			}
+			const contra_doct = cryptr.decrypt(doctores[0].Contraseña);
+
+			console.log('Decifrada'+contra_doct);
+
+			if (doctores.length == 0 || contra_doct != contra){
 				console.log(doctores);
 				res.redirect('/login.ejs');
 			}else{

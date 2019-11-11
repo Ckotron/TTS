@@ -2,6 +2,8 @@ const controller = {};
 let id = -1;
 let idDoc = -1;
 
+const Cryptr = require ('cryptr');
+const cryptr = new Cryptr('KTT##2018-B075');
 
 controller.list = (req,res) =>{
 	id = req.params.id;
@@ -24,6 +26,14 @@ controller.list = (req,res) =>{
 			if(err){
 				res.json(err);
 			}
+					const noIndecrypted = cryptr.decrypt(upd_paciente[0].NoIncidencias);
+
+					console.log('Decifrada'+noIndecrypted);
+
+					upd_paciente[0].NoIncidencias = noIndecrypted;
+
+					console.log('Valor decifrado'+upd_paciente[0].NoIncidencias);
+
 					res.render('pacientes_update', {
 						data: upd_paciente,
 						tel: upd_tel,
@@ -52,11 +62,16 @@ controller.update = (req,res) =>{
 	const newNoInc = req.body.NoIncidencias;
 	const newIdDoc = req.body.idDoctor;
 
+	const noIncencrypted = cryptr.encrypt(newNoInc);
+
+	console.log(noIncencrypted);
+
+
 	const newTel = req.body.Telefono;
 	const newCorr = req.body.Correo;
 
 	req.getConnection((err,conn) =>{
-		conn.query('UPDATE pacientes SET Nombre = ?, ApPaterno = ?, ApMaterno = ?, FechaNac = ?, Genero = ?, Alergias = ?, TipoSangre = ?, EdoCivil = ?, NoIncidencias = ? WHERE idPaciente = ?', [newNombre, newApPat, newApMat, newFechN, newGen, newAler, newTipS, newEdoC, newNoInc, id], (err, pacientes) =>{
+		conn.query('UPDATE pacientes SET Nombre = ?, ApPaterno = ?, ApMaterno = ?, FechaNac = ?, Genero = ?, Alergias = ?, TipoSangre = ?, EdoCivil = ?, NoIncidencias = ? WHERE idPaciente = ?', [newNombre, newApPat, newApMat, newFechN, newGen, newAler, newTipS, newEdoC, noIncencrypted, id], (err, pacientes) =>{
 			if(err){
 				res.json(err);
 			}

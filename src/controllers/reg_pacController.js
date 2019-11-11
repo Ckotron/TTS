@@ -1,6 +1,9 @@
 const controller = {};
 let idDoc = -1;
 
+const Cryptr = require ('cryptr');
+const cryptr = new Cryptr('KTT##2018-B075');
+
 controller.rendering = (req,res) =>{
 	idDoc = req.params.idDoc;
 //	req.getConnection((err,conn) =>{
@@ -31,12 +34,17 @@ controller.save = (req,res) =>{
 	const edoC = req.body.EdoCivil;
 	const noInc = req.body.NoIncidencias;
 
+	//cifrado
+	const noIncencrypted = cryptr.encrypt(noInc);
+
+	console.log(noIncencrypted);
+
 	const telfijo = req.body.TelefonoFijo;
 	const correo2 = req.body.Correo2;
 
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('CALL IngresaPaciente(?,?,?,?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, aler, tipS, edoC, noInc, idDoc], (err, pacientes) =>{
+		conn.query('CALL IngresaPaciente(?,?,?,?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, aler, tipS, edoC, noIncencrypted, idDoc], (err, pacientes) =>{
 			console.log(pacientes);
 		});
 	});

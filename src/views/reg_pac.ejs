@@ -239,8 +239,8 @@
             <td><label for="telfijo">Teléfono 2</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono 1" pattern="\d*" required></td>
-            <td><input type="text" id ="telfijo" name="TelefonoFijo" class="form-control" placeholder="Teléfono 2" pattern="\d*"></td>
+            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono 1" pattern="\d*" min="10" required></td>
+            <td><input type="text" id ="telfijo" name="TelefonoFijo" class="form-control" placeholder="Teléfono 2" pattern="\d*" min="10"></td>
           </tr>
           <tr>
             <td><label for="alerg">Alergias</label></td>
@@ -315,7 +315,7 @@
             <td><label for="idDoc">ID del doctor</label></td>
           </tr>
           <tr>
-            <td><input type="number" id ="noInci" name="NoIncidencias" class="form-control" placeholder="Número de incidencias" required></td>
+            <td><input type="number" id ="noInci" name="NoIncidencias" class="form-control" placeholder="Número de incidencias" min="0" required></td>
             <td><input type="text" id ="idDoc" name="idDoctor" class="form-control" placeholder="<%=data%>" disabled></td>
           </tr>
         </table>

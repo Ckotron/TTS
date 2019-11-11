@@ -265,7 +265,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="telant<%=i%>" name="TelefonoV" class="form-control" value = "<%= tel[i].Telefono %>" disabled></td>
-                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" value = "<%= tel[i].Telefono %>" pattern="\d*" required></td>
+                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" min = "10" value = "<%= tel[i].Telefono %>" pattern="\d*" required></td>
                   </tr>
                     <% } %>
                     <% } %>
@@ -439,7 +439,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="noInci1" name="NoIncidenciasV" class="form-control" value = "<%= data[0].NoIncidencias %>" disabled></td>
-                    <td><input type="number" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>" required></td>
+                    <td><input type="number" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>" min="0" required></td>
                   </tr>
                   <tr>
                     <td><label for="idDoc1">ID del doctor</label></td>

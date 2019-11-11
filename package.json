@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Ckotron/TTS#readme",
   "dependencies": {
     "@chilkat/ck-electron3-win64": "^9.50.79",
+    "cryptr": "^6.0.1",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-myconnection": "^1.0.4",

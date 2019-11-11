@@ -2,6 +2,9 @@ const controller = {};
 let id = -1;
 let idDoc = -1;
 
+const Cryptr = require ('cryptr');
+const cryptr = new Cryptr('KTT##2018-B075');
+
 controller.list = (req,res) =>{
 	id = req.params.id;
 	idDoc = req.params.idDoc;
@@ -19,6 +22,14 @@ controller.list = (req,res) =>{
 					if(err){
 						res.json(err);
 					}
+					const noIndecrypted = cryptr.decrypt(paciente[0].NoIncidencias);
+
+					console.log('Decifrada'+noIndecrypted);
+
+					paciente[0].NoIncidencias = noIndecrypted;
+
+					console.log('Valor decifrado'+paciente[0].NoIncidencias);
+
 					res.render('info_paciente', {
 						data: paciente,
 						tel: upd_tel,

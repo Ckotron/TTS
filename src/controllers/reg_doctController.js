@@ -1,5 +1,8 @@
 const controller = {};
 
+const Cryptr = require ('cryptr');
+const cryptr = new Cryptr('KTT##2018-B075');
+
 controller.rendering = (req,res) =>{
 //	req.getConnection((err,conn) =>{
 //		conn.query('SELECT * FROM doctores', (err, doctores) =>{
@@ -23,9 +26,14 @@ controller.save = (req,res) =>{
 	const tel = req.body.Telefono;
 	const corr = req.body.Correo;
 
+	//cifrado
+	const contraencrypted = cryptr.encrypt(contra);
+
+	console.log(contraencrypted);
+
 	//console.log(nombre);//Descomentar para probar en consola y comentar todo el bloque siguiente.
 	req.getConnection((err,conn) =>{
-		conn.query('INSERT INTO doctores (Nombre,ApPaterno,ApMaterno, FechaNac, Genero, NombUsuario, Contraseña) VALUES(?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, nombU, contra], (err, doctores) =>{
+		conn.query('INSERT INTO doctores (Nombre,ApPaterno,ApMaterno, FechaNac, Genero, NombUsuario, Contraseña) VALUES(?,?,?,?,?,?,?);', [nombre, apPat, apMat, fechN, gen, nombU, contraencrypted], (err, doctores) =>{
 			console.log(doctores);
 		});
 	});

@@ -188,7 +188,7 @@
             <td><label>Género</label></td>
           </tr>   
           <tr>
-          <td><input type="date" id ="fechaNac" name="FechaNac" class="form-control" min="1875-01-01" max="2015-12-31" required></td>
+          <td><input type="date" id ="fechaNac" name="FechaNac" class="form-control" min="1875-01-01" max="1997-12-31" required></td>
           <td><div class="radio" required>
             <label>
               <input type="radio" name="Genero" id="masc" value="M" checked>
@@ -206,7 +206,7 @@
             <td><label for="idCorreo">Correo</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono" pattern="\d*" required></td>
+            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono" pattern="\d*" min="10" required></td>
             <td><input type="email" id ="idCorreo" name="Correo" class="form-control" placeholder="Correo" required></td>
           </tr>
         </table>
