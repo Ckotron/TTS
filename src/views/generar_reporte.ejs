@@ -199,11 +199,11 @@
 			</nav>
 		<div class="row">
 			<div class="col-md 5 mt-2 text-center">
-		    	<form action="/<%=notas[0].idDoctor%>/atender.ejs/<%=notas[0].idPaciente%>/<%=notas[0].Fecha%>" method="post">
+		    	<form action="/<%=notas[0].idDoctor%>/atender.ejs/<%=notas[0].idPaciente%>/<%=notas[0].Fecha%>/saveRecom" method="post">
 			    	<div class='form-group'> 
 			    	<textarea class="form-control" name="observaciones" rows="7"></textarea>
 		    		</div>
-		    		<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=notas[0].idDoctor%>/atender.ejs/<%=notas[0].idPaciente%>/<%=notas[0].Fecha%>/saveRecom'">Guardar recomendaciones</button> 
+		    		<button type="submit" id="estilo_btn" class="btn btn-success">Guardar recomendaciones</button> 
 		    	</form>
 		    	<br>
 		    	<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= notas[0].idDoctor%>/atender.ejs/<%= notas[0].idPaciente %>/<%=notas[0].Fecha%>'">Regresar</button>
