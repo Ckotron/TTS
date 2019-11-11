@@ -76,7 +76,7 @@
 <body>
 	<div class="mt-5 ml-5 mr-5 mb-5">
 		<nav class="navbar navbar-dark bg-success">
-			<a class="navbar-brand mx-auto">Reporte</a>
+			<a class="navbar-brand mx-auto text-light">Reporte</a>
 		</nav>
 		<div class="row">
 			<div class="col-md 6 mt-4 text-center">
@@ -139,7 +139,7 @@
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-light bg-success">
-			<a class="navbar-brand mx-auto text-light">Porcentaje de incidencias encontradas</a>
+			<a class="navbar-brand mx-auto text-light">Porcentajes obtenidos de las variables significativas presentes en el fenómeno</a>
 		</nav>
 		<div class="row">
 			<div class="col-md 5 mt-2 text-center">
@@ -148,7 +148,7 @@
 					<thead class="thead-light">
 						<tr>
 							<th>Variable</th>
-							<th>Porcentaje obtenido en los cuestionarios</th>
+							<th>Porcentaje obtenido en las variables</th>
 						</tr>
 					</thead>
 						<tr>
@@ -157,11 +157,11 @@
 								<%if((respcuest1[0].ValorR >= 1 && respcuest1[0].ValorR <= 27)){%>
 									<% var res=((respcuest1[0].ValorR)*100)/27%>
 									<td><%=res.toString().substr(0,5).concat("%")%></td>
-								
+								<%}%>
 								<%} else {%>
 									<td>No Aplica Indicador</td>
 								<%}%>
-							<%}%>
+
 						</tr>
 						<tr>
 							<td><%= regresion[1].DescRegresion%></td>
@@ -182,11 +182,13 @@
 								<td>23%</td>
 								<%}else if((respcuest2[0].ValorR == 10)){%>
 								<td>12.5%</td>
-								
+								<%}else{%>
+									<td>No Aplica Indicador</td>
+								<%}%>
+
 								<%} else {%>
 									<td>No Aplica Indicador</td>
 								<%}%>
-							<%}%>
 						</tr>
 				</table>
 
@@ -201,8 +203,10 @@
 			    	<div class='form-group'> 
 			    	<textarea class="form-control" name="observaciones" rows="7"></textarea>
 		    		</div>
-		    		<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=notas[0].idDoctor%>/atender.ejs/<%=notas[0].idPaciente%>/<%=notas[0].Fecha%>'">Guardar recomendaciones</button> <button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= notas[0].idDoctor%>/atender.ejs/<%= notas[0].idPaciente %>/<%=notas[0].Fecha%>'">Regresar</button>
+		    		<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%=notas[0].idDoctor%>/atender.ejs/<%=notas[0].idPaciente%>/<%=notas[0].Fecha%>/saveRecom'">Guardar recomendaciones</button> 
 		    	</form>
+		    	<br>
+		    	<button type="submit" id="estilo_btn" class="btn btn-success" onclick="window.location.href='/<%= notas[0].idDoctor%>/atender.ejs/<%= notas[0].idPaciente %>/<%=notas[0].Fecha%>'">Regresar</button>
 		    </div>
 		</div>		
 	</dive>
