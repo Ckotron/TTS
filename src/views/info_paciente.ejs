@@ -197,7 +197,16 @@
                         <th>Apellido materno</th>
                         <th>Fecha de nacimiento</th>
                         <th>Género</th>
-                        <th>Teléfono</th>
+                        <%if(tel){%>
+                          <%for(var c = 0; c < tel.length; c++){%>
+                            <th>Teléfono <%= c+1%></th>
+                          <%}%>
+                        <%}%>
+                        <%if(corr){%>
+                          <%for(var h = 0; h < corr.length; h++){%>
+                            <th>Correo <%= h+1%></th>
+                          <%}%>
+                        <%}%>
                         <th>Alergias</th>
                         <th>Tipo de sangre</th>
                         <th>Estado civil</th>
@@ -220,7 +229,16 @@
                             <td><%= data[i].ApMaterno %></td>
                             <td><%= data[i].FechaNac %></td>
                             <td><%= data[i].Genero %></td>
-                            <td><%= data[i].Telefono %></td>
+                            <%if(tel){%>
+                              <%for(var c = 0; c < tel.length; c++){%>
+                                <td><%= tel[c].Telefono %></td>
+                              <%}%>
+                            <%}%>
+                            <%if(corr){%>
+                              <%for(var h = 0; h < tel.length; h++){%>
+                                <td><%= corr[h].Correo %></td>
+                              <%}%>
+                            <%}%>
                             <td><%= data[i].Alergias %></td>
                             <td><%= data[i].TipoSangre %></td>
                             <td><%= data[i].EdoCivil %></td>

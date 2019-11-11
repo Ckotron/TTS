@@ -228,11 +228,18 @@
           </div></td>
           </tr>
           <tr>
-            <td><label for="tel">Teléfono</label></td>
-            <td><label for="alerg">Alergias</label></td>
+            <td><label for="tel">Teléfono 1</label></td>
+            <td><label for="telfijo">Teléfono 2</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono"></td>
+            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono 1"></td>
+            <td><input type="text" id ="telfijo" name="TelefonoFijo" class="form-control" placeholder="Teléfono 2"></td>
+          </tr>
+          <tr>
+            <td><label for="alerg">Alergias</label></td>
+            <td><label for="tips">Tipo de sangre</label></td>
+          </tr>
+          <tr>
             <td><div class="radio">
             <label>
               <input type="radio" name="Alergias" id="y" value="Si" checked>
@@ -244,14 +251,7 @@
               No
             </label>
           </div></td>
-          </tr>
-        <tr>
-          <td><label>Correo</label></td>
-          <td><label for="tips">Tipo de sangre</label></td>
-        </tr>
-          <tr>
-            <td><input type="text" id ="corr" name="Correo" class="form-control" placeholder="Correo"></td>
-            <td>
+          <td>
             <select class="form-control" name = "TipoSangre">
               <option value = "A+">A+</option>
               <option value = "B+">B+</option>
@@ -263,6 +263,14 @@
               <option value = "AB-">AB-</option>
             </select>
           </td>
+          </tr>
+        <tr>
+          <td><label>Correo 1</label></td>
+          <td><label>Correo 2</label></td>
+        </tr>
+          <tr>
+            <td><input type="text" id ="corr" name="Correo" class="form-control" placeholder="Correo 1"></td>
+            <td><input type="text" id ="corr" name="Correo2" class="form-control" placeholder="Correo 2"></td>
           </tr>
         <tr>
           <td><label>Estado civil</label></td>
