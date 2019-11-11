@@ -199,7 +199,7 @@
           </thead>
           <tbody>
             <% if (data) { %>
-              <% for (var i = 0; (i < data.length) && (data[i].Fecha != null); i++) {%>
+              <% for (var i = 0; (i < data.length) && (data[i].Fecha != null) && (data[i].idDoctor != ""); i++) {%>
                 <tr>
                   <td><%= data[i].idPaciente %></td>
                   <td><%= data[i].Nombre %></td>
