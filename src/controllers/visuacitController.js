@@ -9,7 +9,7 @@ controller.list = (req,res) =>{
 	console.log(idDoc);
 
 	req.getConnection((err,conn) =>{
-		conn.query('SELECT D.idDoctor, P.Nombre, P.ApPaterno, P.ApMaterno, A.Fecha, A.HoraInicio, A.idPaciente FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor AND P.idPaciente IN ( SELECT P.idPaciente FROM Pacientes P INNER JOIN Aplicacion A ON P.idPaciente = A.idPaciente) LEFT JOIN Aplicacion A ON P.idPaciente = A.idPaciente AND A.Estado="Pendiente" WHERE D.idDoctor = ?', [idDoc], (err, cita) =>{
+		conn.query('SELECT D.idDoctor, P.Nombre, P.ApPaterno, P.ApMaterno, A.Fecha, A.HoraInicio, A.idPaciente FROM Doctores D LEFT JOIN Pacientes P ON D.idDoctor = P.idDoctor AND P.idPaciente IN ( SELECT P.idPaciente FROM Pacientes P INNER JOIN Aplicacion A ON P.idPaciente = A.idPaciente) LEFT JOIN Aplicacion A ON P.idPaciente = A.idPaciente  WHERE A.Estado="Pendiente" AND D.idDoctor = ? ', [idDoc], (err, cita) =>{
 			if(err){
 				res.json(err);
 			}
