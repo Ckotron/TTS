@@ -116,6 +116,13 @@
         background-color: #555555;
         color: white;
       }
+      input:invalid {
+        border: 1px solid red;
+      }
+
+      input:valid {
+        border: 1px solid green;
+      }
     </style>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
@@ -164,15 +171,15 @@
       <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
         <table id = "tab">
           <tr><td><label for="nombr">Nombre</label></td></tr>
-        <tr><td colspan="2"><input type="text" id ="nombr" name="Nombre" class="form-control" placeholder="Nombre"></td></tr>
+        <tr><td colspan="2"><input type="text" id ="nombr" name="Nombre" class="form-control" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,30}" maxlength="30" required></td></tr>
 
           <tr>
             <td><label for="apPat">Apellido paterno</label></td>
             <td><label for="apMat">Apellido materno</label></td>
           </tr>
           <tr>
-            <td><input type="text" id ="apPat" name="ApPaterno" class="form-control" placeholder="Apellido paterno"></td>
-            <td><input type="text" id ="apMat" name="ApMaterno" class="form-control" placeholder="Apellido materno"></td>
+            <td><input type="text" id ="apPat" name="ApPaterno" class="form-control" placeholder="Apellido paterno" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" required></td>
+            <td><input type="text" id ="apMat" name="ApMaterno" class="form-control" placeholder="Apellido materno" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" minlength="2" required></td>
           </tr>
           <tr>
             <td width = >
@@ -181,8 +188,8 @@
             <td><label>Género</label></td>
           </tr>   
           <tr>
-          <td><input type="date" id ="fechaNac" name="FechaNac" class="form-control"></td>
-          <td><div class="radio">
+          <td><input type="date" id ="fechaNac" name="FechaNac" class="form-control" min="1875-01-01" max="2015-12-31" required></td>
+          <td><div class="radio" required>
             <label>
               <input type="radio" name="Genero" id="masc" value="M" checked>
               Masculino
@@ -199,8 +206,8 @@
             <td><label for="idCorreo">Correo</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono"></td>
-            <td><input type="text" id ="idCorreo" name="Correo" class="form-control" placeholder="Correo"></td>
+            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono" pattern="\d*" required></td>
+            <td><input type="email" id ="idCorreo" name="Correo" class="form-control" placeholder="Correo" required></td>
           </tr>
         </table>
         <table id = "tab">
@@ -209,8 +216,8 @@
             <td><label for="pswd">Contraseña</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="usr" name="NombUsuario" class="form-control" placeholder="Usuario"></td>
-            <td><input type="password" id ="pswd" name="Contrasena" class="form-control" placeholder="Contraseña"></td>
+            <td><input type="text" id ="usr" name="NombUsuario" class="form-control" placeholder="Usuario" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" maxlength="25" minlength="3" required></td>
+            <td><input type="password" id ="pswd" name="Contrasena" class="form-control" placeholder="Contraseña" maxlength="25" required></td>
           </tr>
           <tr>
             <td><br></td>

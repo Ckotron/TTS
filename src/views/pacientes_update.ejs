@@ -117,6 +117,13 @@
         background-color: #555555;
         color: white;
       }
+      input:invalid {
+        border: 1px solid red;
+      }
+
+      input:valid {
+        border: 1px solid green;
+      }
     </style>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns fixed-navbar">
@@ -194,7 +201,7 @@
                   </tr>      
                   <tr>
                     <td><input type="text" id ="nombr1" name="NombreV" class="form-control" value = "<%= data[0].Nombre %>" disabled></td>
-                    <td><input type="text" id ="nombr2" name="Nombre" class="form-control" value = "<%= data[0].Nombre %>"></td>
+                    <td><input type="text" id ="nombr2" name="Nombre" class="form-control" value = "<%= data[0].Nombre %>" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,30}" maxlength="30" required></td>
                   </tr>
                   <tr>
                     <td><label for="apPat1">Apellido paterno</label></td>
@@ -202,7 +209,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="apPat1" name="ApPaternoV" class="form-control" value = "<%= data[0].ApPaterno %>" disabled></td>
-                    <td><input type="text" id ="apPat2" name="ApPaterno" class="form-control" value = "<%= data[0].ApPaterno %>"></td>
+                    <td><input type="text" id ="apPat2" name="ApPaterno" class="form-control" value = "<%= data[0].ApPaterno %>" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" required></td>
                   </tr>
                   <tr>
                     <td><label for="apMat1">Apellido materno</label></td>
@@ -210,7 +217,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="apMat1" name="ApMaternoV" class="form-control" value = "<%= data[0].ApMaterno %>" disabled></td>
-                    <td><input type="text" id ="apMat2" name="ApMaterno" class="form-control" value = "<%= data[0].ApMaterno %>"></td>
+                    <td><input type="text" id ="apMat2" name="ApMaterno" class="form-control" value = "<%= data[0].ApMaterno %>" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" required></td>
                   </tr>
                   <tr>
                     <td><label for="fechaN1">Fecha de nacimiento</label></td>
@@ -218,7 +225,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="fechaN1" name="FechaNacV" class="form-control" value = "<%= data[0].FechaNac %>" readonly = "readonly"></td>
-                    <td><input type="date" id ="fechaN2" name="FechaNac" class="form-control" value = "<%= data[0].FechaNac %>" min="1875-01-01" max="2019-11-05"></td>
+                    <td><input type="date" id ="fechaN2" name="FechaNac" class="form-control" value = "<%= data[0].FechaNac %>" min="1875-01-01" max="2015-12-31" min="1875-01-01" max="2015-12-31" required></td>
                   </tr>
                   <tr>
                     <td><label>Género</label></td>
@@ -258,7 +265,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="telant<%=i%>" name="TelefonoV" class="form-control" value = "<%= tel[i].Telefono %>" disabled></td>
-                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" value = "<%= tel[i].Telefono %>"></td>
+                    <td><input type="text" id ="telnv<%=i%>" name="Telefono" class="form-control" value = "<%= tel[i].Telefono %>" pattern="\d*" required></td>
                   </tr>
                     <% } %>
                     <% } %>
@@ -272,7 +279,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="corrant<%=c%>" name="CorreoV" class="form-control" value = "<%=corr[c].Correo%>" disabled></td>
-                    <td><input type="text" id ="corrnv<%=c%>" name="Correo" class="form-control" value = "<%= corr[c].Correo%>"></td>
+                    <td><input type="email" id ="corrnv<%=c%>" name="Correo" class="form-control" value = "<%= corr[c].Correo%>"></td>
                   </tr>
                   <% } %>
                   <% } %>
@@ -432,7 +439,7 @@
                   </tr>
                   <tr>
                     <td><input type="text" id ="noInci1" name="NoIncidenciasV" class="form-control" value = "<%= data[0].NoIncidencias %>" disabled></td>
-                    <td><input type="text" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>"></td>
+                    <td><input type="number" id ="noInci2" name="NoIncidencias" class="form-control" value = "<%= data[0].NoIncidencias %>" required></td>
                   </tr>
                   <tr>
                     <td><label for="idDoc1">ID del doctor</label></td>

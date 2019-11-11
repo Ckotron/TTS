@@ -192,6 +192,10 @@
       <div id="inputs" class = "container col-lg8 col-xs-12 col-centered">
         <table id = "tab">
           <tr>
+            <%var today = new Date();%>
+            <%var dateString = new Date(today.getTime() - (today.getTimezoneOffset() * 60000 )).toISOString().split("T")[0];%>
+            <%var hora=today.getHours()%>
+            <%var minutos=today.getMinutes()%>
             <th><label>Valor anterior</label></th>
             <th><label>Nuevo valor</label></th>
           </tr>
@@ -209,7 +213,15 @@
           </tr>
           <tr>
             <td><input type="text" id ="horai1" name="HoraInicioV" class="form-control" value = "<%= data[0].HoraInicio %>" disabled></td>
-            <td><input type="time" id ="horai2" name="HoraInicio" class="form-control" value = "<%= data[0].HoraInicio %>"></td>
+                        <%if(parseInt(hora) < 10 && parseInt(minutos) < 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" value = "<%= data[0].HoraInicio %>" min="<%='0'+hora+':0'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) < 10 && parseInt(minutos) >= 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" value = "<%= data[0].HoraInicio %>" min="<%='0'+hora+':'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) > 10 && parseInt(minutos) < 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" value = "<%= data[0].HoraInicio %>" min="<%=hora+':0'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) > 10 && parseInt(minutos) >= 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" value = "<%= data[0].HoraInicio %>" min="<%=hora+':'+minutos%>" required></td>
+                        <%}%>
           </tr>
           <tr>
             <td><label for="idp1">ID Paciente</label></td>

@@ -116,6 +116,13 @@
         background-color: #555555;
         color: white;
       }
+      input:invalid {
+        border: 1px solid red;
+      }
+
+      input:valid {
+        border: 1px solid green;
+      }
     </style>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
@@ -195,15 +202,15 @@
             <td><label for="nombr">Nombre</label></td>
           </tr>
           <tr>
-            <td colspan="2"><input type="text" id ="nombr" name="Nombre" class="form-control" placeholder="Nombre"></td>
+            <td colspan="2"><input type="text" id ="nombr" name="Nombre" class="form-control" placeholder="Nombre" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,30}" maxlength="30" required></td>
           </tr>
           <tr>
             <td><label for="apPat">Apellido paterno</label></td>
             <td><label for="apMat">Apellido materno</label></td>
           </tr>
           <tr>
-            <td><input type="text" id ="apPat" name="ApPaterno" class="form-control" placeholder="Apellido paterno"></td>
-            <td><input type="text" id ="apMat" name="ApMaterno" class="form-control" placeholder="Apellido materno"></td>
+            <td><input type="text" id ="apPat" name="ApPaterno" class="form-control" placeholder="Apellido paterno" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" required></td>
+            <td><input type="text" id ="apMat" name="ApMaterno" class="form-control" placeholder="Apellido materno" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,25}" maxlength="25" required></td>
           </tr>
           <tr>
             <td>
@@ -213,7 +220,7 @@
             <td></td>
           </tr>   
           <tr>
-          <td><input type="date" id ="fechaN" name="FechaNac" class="form-control"></td>
+          <td><input type="date" id ="fechaN" name="FechaNac" class="form-control" min="1875-01-01" max="2015-12-31" required></td>
           <td>
             <div class="radio">
             <label>
@@ -232,8 +239,8 @@
             <td><label for="telfijo">Teléfono 2</label></td>
           </tr>      
           <tr>
-            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono 1"></td>
-            <td><input type="text" id ="telfijo" name="TelefonoFijo" class="form-control" placeholder="Teléfono 2"></td>
+            <td><input type="text" id ="tel" name="Telefono" class="form-control" placeholder="Teléfono 1" pattern="\d*" required></td>
+            <td><input type="text" id ="telfijo" name="TelefonoFijo" class="form-control" placeholder="Teléfono 2" pattern="\d*"></td>
           </tr>
           <tr>
             <td><label for="alerg">Alergias</label></td>
@@ -269,8 +276,8 @@
           <td><label>Correo 2</label></td>
         </tr>
           <tr>
-            <td><input type="text" id ="corr" name="Correo" class="form-control" placeholder="Correo 1"></td>
-            <td><input type="text" id ="corr" name="Correo2" class="form-control" placeholder="Correo 2"></td>
+            <td><input type="email" id ="corr" name="Correo" class="form-control" placeholder="Correo 1" required></td>
+            <td><input type="email" id ="corr" name="Correo2" class="form-control" placeholder="Correo 2"></td>
           </tr>
         <tr>
           <td><label>Estado civil</label></td>
@@ -308,7 +315,7 @@
             <td><label for="idDoc">ID del doctor</label></td>
           </tr>
           <tr>
-            <td><input type="text" id ="noInci" name="NoIncidencias" class="form-control" placeholder="Número de incidencias"></td>
+            <td><input type="number" id ="noInci" name="NoIncidencias" class="form-control" placeholder="Número de incidencias" required></td>
             <td><input type="text" id ="idDoc" name="idDoctor" class="form-control" placeholder="<%=data%>" disabled></td>
           </tr>
         </table>

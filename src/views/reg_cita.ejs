@@ -182,17 +182,29 @@
                 <table class="tab">
                   <tbody>
                       <tr>
+                        <%var today = new Date();%>
+                        <%var dateString = new Date(today.getTime() - (today.getTimezoneOffset() * 60000 )).toISOString().split("T")[0];%>
+                        <%var hora=today.getHours()%>
+                        <%var minutos=today.getMinutes()%>
                         <td><label for="fch">Fecha</label></td>
                       </tr>
                       <tr>
-                        <td><input type="date" id ="fch" name="Fecha" class="form-control" placeholder="Fecha"></td>
+                        <td><input type="date" id ="fch" name="Fecha" class="form-control" placeholder="Fecha" min="<%=dateString%>" required></td>
                       </tr>
                       <tr><td><br></td></tr>
                       <tr>
                         <td><label for="horai">Hora inicio</label></td>
                       </tr>
                       <tr>
-                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" placeholder="Hora inicio"></td>
+                        <%if(parseInt(hora) < 10 && parseInt(minutos) < 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" placeholder="Hora inicio" min="<%='0'+hora+':0'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) < 10 && parseInt(minutos) >= 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" placeholder="Hora inicio" min="<%='0'+hora+':'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) > 10 && parseInt(minutos) < 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" placeholder="Hora inicio" min="<%=hora+':0'+minutos%>" required></td>
+                        <%}else if(parseInt(hora) > 10 && parseInt(minutos) >= 10){%>
+                        <td><input type="time" id ="horai" name="HoraInicio" class="form-control" placeholder="Hora inicio" min="<%=hora+':'+minutos%>" required></td>
+                        <%}%>
                       </tr>
                       <tr><td><br></td></tr>
                       <tr>
