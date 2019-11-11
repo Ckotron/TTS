@@ -3,6 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
+const helmet = require('helmet');
+
 
 const app = express();
 
@@ -10,6 +12,9 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
+
+//helmet
+app.use(helmet());
 
 //middlewares
 app.use(morgan('dev'));
