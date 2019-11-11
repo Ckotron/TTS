@@ -157,9 +157,10 @@
 								<%if((respcuest1[0].ValorR >= 1 && respcuest1[0].ValorR <= 27)){%>
 									<% var res=((respcuest1[0].ValorR)*100)/27%>
 									<td><%=res.toString().substr(0,5).concat("%")%></td>
-								<%}%>
+								
 								<%} else {%>
 									<td>No Aplica Indicador</td>
+								<%}%>
 							<%}%>
 						</tr>
 						<tr>
@@ -181,9 +182,10 @@
 								<td>23%</td>
 								<%}else if((respcuest2[0].ValorR == 10)){%>
 								<td>12.5%</td>
-								<%}%>
+								
 								<%} else {%>
 									<td>No Aplica Indicador</td>
+								<%}%>
 							<%}%>
 						</tr>
 				</table>
