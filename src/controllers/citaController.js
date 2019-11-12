@@ -15,7 +15,8 @@ controller.list = (req,res) =>{
 			}
 				res.render('cita', {
 					data: cita,
-					doc: idDoc				
+					doc: idDoc,
+					pac: id				
 				});	
 			
 		});
